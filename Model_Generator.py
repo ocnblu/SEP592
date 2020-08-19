@@ -46,7 +46,7 @@ def parse_chunk(chunk):
     num = 0
 
     if chunk[0][0] == 'Test Title':
-        title = chunk[0][1]
+        title = chunk[0][1].replace(' ', '_')
 
     if chunk[1][0] == 'Mnemonic':
         mnemonic = []
@@ -168,6 +168,7 @@ def save_constraint(prefix, cnst):
             f = open(name, 'w+')
 
             f.write(str(len(c) - 1) + '\n')
+
             for i in range(1, len(c)):
                 f.write(str(len(c[i])) + '\n')
 
