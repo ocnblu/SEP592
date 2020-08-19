@@ -108,7 +108,8 @@ def mutation(data, a, r, c):
     l = copy.deepcopy(data[c])
     l.remove(a[r][c])
 
-    a[r][c] = l[random.randint(0, len(l) - 1)]
+#    a[r][c] = l[random.randint(0, len(l) - 1)]
+    a[r][c] = random.choice(l)
 
     return a
 
@@ -119,6 +120,113 @@ def crossover(a, r1, r2):
             a[r1][i], a[r2][i] = a[r2][i], a[r1][i]
 
     return a
+
+
+def get_missing_tuple(a):
+    ret = []
+
+    for r in a:
+        row = set(r)
+
+        for t in possible_tuple:
+            tup = set(t)
+
+            if tup != row.intersection(tup):
+                ret.append(r)
+                break
+
+    return ret
+
+
+def smart_mutation(data, a, r, c):
+    missing = get_missing_tuple(a)
+
+    if len(missing) == 0:
+        a = mutation(data, a, r, c)
+    else:
+        '''
+        num = []
+        for i in range(max_data+1):
+            num.append(i)
+
+        cnt = np.zeros(max_data + 1)
+
+        for row in a:
+            for i in range(len(row)):
+                cnt[row[i]] += 1 / len(data[i])
+
+#        idx = np.argmax(cnt)
+        cnt = cnt / cnt.sum()
+        idx = np.random.choice(num, 1, p=cnt)
+        c = 0
+
+        for row in data:
+            for i in range(len(row)):
+                if row[i] == idx:
+                    c = i
+                    break
+
+        m = random.choice(missing)
+
+        for i in range(len(a)):
+            if a[i] == m:
+                l = copy.deepcopy(data[c])
+                l.remove(a[i][c])
+
+                print(r, c, a[i])
+                a[i][c] = random.choice(l)
+                print(r, c, a[i])
+
+                break
+        '''
+        m = random.choice(missing)
+
+        for i in range(len(a)):
+            if a[i] == m:
+                c = random.randint(0, len(a[i]) - 1)
+                l = copy.deepcopy(data[c])
+                l.remove(a[i][c])
+
+#                print(i, c, a[i])
+                a[i][c] = random.choice(l)
+#                print(i, c, a[i])
+
+    return a
+    '''
+#        print(c, len(data))
+
+        l = copy.deepcopy(data[c])
+        l.remove(a[r][c])
+
+        print('1', r, c, a[r], l)
+
+        a[r][c] = random.choice(l)
+
+        print('2', r, c, a[r], l)
+
+    return a
+    '''
+
+def smart_crossover(data, a, r1, r2):
+    missing = get_missing_tuple(a)
+
+    if len(missing) > 0:
+        hit = [x for x in a if x not in missing]
+
+        row1 = random.choice(missing)
+
+#        if len(hit) > 0:
+#            row2 = random.choice(hit)
+#        else:
+        row2 = random.choice(missing)
+
+        for i in range(len(a)):
+            if a[i] == row1:
+                r1 = i
+            elif a[i] == row2:
+                r2 = i
+
+    return crossover(a, r1, r2)
 
 
 def local_move(data, op, a):
@@ -135,7 +243,7 @@ def local_move(data, op, a):
         if op[i] == 0:
 #            print('Single Mutation (Std)')
 
-            mutation(data, ret, r1, c)
+            ret = mutation(data, ret, r1, c)
         elif op[i] == 1:
 #            print('Add/Del (Std)')
 
@@ -145,13 +253,24 @@ def local_move(data, op, a):
         elif op[i] == 2:
 #            print('Multiple Mutation (Std)')
 
-            crossover(ret, r1, r2)
+            ret = crossover(ret, r1, r2)
         elif op[i] == 3:
 #            print('Single Mutation (Smart)')
 
-            mutation(data, ret, r1, c)
+#            ret = smart_mutation(data, a, r1, c)
+            ret = mutation(data, a, r1, c)
         elif op[i] == 4:
 #            print('Add/Del (Smart)')
+
+            missing = get_missing_tuple(a)
+
+            if len(missing) > 0:
+                m = random.choice(missing)
+
+                for i in range(len(a)):
+                    if a[i] == m:
+                        r1 = i
+                        break
 
             del ret[r1]
 
@@ -159,9 +278,10 @@ def local_move(data, op, a):
         elif op[i] == 5:
 #            print('Multiple Mutation (Smart)')
 
-            crossover(ret, r1, r2)
+            ret = crossover(a, r1, r2)
+#           ret = smart_crossover(data, a, r1, r2)
 
-#    print('out:', ret)
+    #    print('out:', ret)
 
     return ret
 
@@ -249,7 +369,7 @@ def rl_agent_choose_action(missing):
 
     op = []
 
-    if False:
+    if True:
         '''
         for i in range(6):
             if random.uniform(0, 1) > 0.5:
@@ -297,6 +417,8 @@ def cit(t, data, c, n, max_improvement, temp):
         cnt += 1
 
         op = rl_agent_choose_action(curr_missing)
+#        op = [random.randint(0, 1) * 2]
+#        op = [2]
         a_p = local_move(data, op, a)
 
         while True:
@@ -319,12 +441,14 @@ def cit(t, data, c, n, max_improvement, temp):
 
             a = copy.deepcopy(a_p)
             curr_missing = new_missing
-            print(curr_missing)
+#            print(curr_missing, a)
+            print(curr_missing, op)
 
         if curr_missing == 0 and new_missing == 0 and not has_violation:
             break
 
         temp = cool(temp)
+#        print(new_missing, op)
 
     # Remove the duplication
     '''
@@ -393,11 +517,36 @@ def open_const_file(name):
     return ret
 
 
+def save_solution(name, infile, cnstfile, n, t, miss, viol, sol):
+    if name is None:
+        name = 'output.coveringarray'
+
+    f = open(name, 'w+')
+
+    f.write('Data File:                ' + infile + '\n')
+    f.write('Constraint File:          ' + cnstfile + '\n')
+    f.write('Size of Covering Array:   ' + str(n) + '\n')
+    f.write('Strength of the array:    ' + str(t) + '\n')
+    f.write('Number of Missing Tuples: ' + str(miss) + '\n')
+    f.write('Constraint Violation:     ' + str(viol) + '\n')
+    f.write('\n')
+
+    f.write(str(len(sol)) + '\n')
+    for s in sol:
+        for num in s:
+            f.write(str(num) + ' ')
+        f.write('\n')
+
+    f.close()
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Find the covering array.')
     parser.add_argument('name', help='Name of data file to open')
     parser.add_argument('-c', dest='constraint', required=False, default=None,
                         help='Set the name of constraint file')
+    parser.add_argument('-o', dest='output', required=False, default=None,
+                        help='Set the name of output file')
     parser.add_argument('-n', dest='size', required=False, default=10,
                         help='Set the target size of the covering array (Default: 10)')
     parser.add_argument('-i', dest='improve', required=False, default=256,
@@ -441,7 +590,12 @@ if __name__ == '__main__':
     t, data = open_data_file(filename)
     constraint = open_const_file(constraint_filename)
 
-    print('Strength of the array;   ', t)
+    max_data = 0
+
+    for d in data:
+        max_data = max(max_data, max(d))
+
+    print('Strength of the array:   ', t)
     print()
 
     possible_tuple = build_possible_tuple(t, data, constraint)
@@ -454,3 +608,5 @@ if __name__ == '__main__':
 
     for i in range(len(solution)):
         print(i + 1, list(solution[i]))
+
+    save_solution(args.output, filename, constraint_filename, n, t, missing, violation, solution)
