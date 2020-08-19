@@ -50,7 +50,6 @@ def parse_tlm(data):
 
         ret.append([mnemonic, status])
 
-
     return ret
 
 
@@ -89,12 +88,13 @@ def get_index(tlm, mnemonic, num):
 
 def parse_chunk(chunk):
     num = 0
+    title = ''
+    mnemonic = []
 
     if chunk[0][0] == 'Test Title':
         title = chunk[0][1]
 
     if chunk[1][0] == 'Mnemonic':
-        mnemonic = []
         for i in range(1, len(chunk[1])):
             num = i
 
@@ -142,14 +142,6 @@ def open_ca_file(name):
 
     f = open(name, 'r')
 
-    f.readline().strip().rstrip()   # Data File
-    f.readline().strip().rstrip()   # Constraint File
-    f.readline().strip().rstrip()   # Size of CA
-    f.readline().strip().rstrip()   # Strength
-    f.readline().strip().rstrip()   # No. of Missing
-    f.readline().strip().rstrip()   # Constraint violation
-    f.readline().strip().rstrip()   # \n
-
     num = int(f.readline().strip().rstrip())
 
     for i in range(num):
@@ -179,65 +171,65 @@ def generate_code(ca, c, case, cmd, tlm):
     ret.append('\t// // DESCRIPTION: THIS SEQUENCE IS DEFINED FOR ' + title)
     ret.append('\t// //')
     ret.append('\t// //*******************************************************************************************')
-    ret.append('')
+    ret.append('\t')
     ret.append('\t// //*******************************************************************************************')
     ret.append('\t// // HISTORY')
     ret.append('\t// //')
     ret.append('\t// // 1. ' + datetime.today().strftime('%Y-%m-%d') + ' INITIAL')
     ret.append('\t// //')
     ret.append('\t// //*******************************************************************************************')
-    ret.append('')
+    ret.append('\t')
     ret.append('\tSUB main_sub')
     ret.append('\t\tTLM_WAIT = 32')
-    ret.append('')
+    ret.append('\t\t')
     ret.append('\t\tOUTPUT "' + title +' Start: ", DATE$')
-    ret.append('')
+    ret.append('\t\t')
     ret.append('\t\t////////////////////////////////////////////////////////////////////////////////////////////')
     ret.append('\t\t//')
     ret.append('\t\t// Check default status')
     ret.append('\t\t//')
     ret.append('\t\t////////////////////////////////////////////////////////////////////////////////////////////')
-    ret.append('')
+    ret.append('\t\t')
 
     for m in mnemonic:
         ret.append('\t\tCHECK ' + m + ' = "' + get_status(tlm, m)[0] + '", TIMEOUT = TLM_WAIT')
 
+    ret.append('\t\t')
+
     for i in range(len(ca)):
-        ret.append('')
         ret.append('\t\t////////////////////////////////////////////////////////////////////////////////////////////')
         ret.append('\t\t//')
         ret.append('\t\t// Check Test Case ' + str(i + 1))
         ret.append('\t\t//')
         ret.append('\t\t////////////////////////////////////////////////////////////////////////////////////////////')
-        ret.append('')
+        ret.append('\t\t')
 
         for j in range(len(mnemonic) - 1, -1, -1):
             m = mnemonic[j]
             idx = get_index(tlm, mnemonic, int(ca[i][j]))
             ret.append('\t\tSEND ' + get_command(cmd, m, get_status(tlm, m)[idx]) + ' END SEND')
             ret.append('\t\tCHECK ' + mnemonic[j] + ' = "' + get_status(tlm, m)[idx] + '", TIMEOUT = TLM_WAIT')
-            ret.append('')
+            ret.append('\t\t')
 
-    ret.append('')
     ret.append('\t\t////////////////////////////////////////////////////////////////////////////////////////////')
     ret.append('\t\t//')
     ret.append('\t\t// Check default status')
     ret.append('\t\t//')
     ret.append('\t\t////////////////////////////////////////////////////////////////////////////////////////////')
-    ret.append('')
+    ret.append('\t\t')
 
     for j in range(len(mnemonic) - 1, -1, -1):
         m = mnemonic[j]
         ret.append('\t\tSEND ' + get_command(cmd, m, get_status(tlm, m)[0]) + ' END SEND')
 
-    ret.append('')
+    ret.append('\t\t')
 
     for m in mnemonic:
         ret.append('\t\tCHECK ' + m + ' = "' + get_status(tlm, m)[0] + '", TIMEOUT = TLM_WAIT')
 
-    ret.append('')
-    ret.append('\t\tOUTPUT "' + title +' Stop: ", DATE$')
-    ret.append('')
+    ret.append('\t\t')
+    ret.append('\t\tOUTPUT "' + title + ' Stop: ", DATE$')
+    ret.append('\t\t')
     ret.append('\t\tEXIT')
     ret.append('\tEND SUB')
     ret.append('END PROC')
@@ -249,11 +241,12 @@ def save_code(name, code):
     if name is None:
         name = 'output.aps'
 
+    print('Output File:', name)
+
     f = open(name, 'w+')
 
     for row in code:
         f.write(row + '\n')
-        print(row)
 
     f.close()
 
