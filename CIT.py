@@ -521,8 +521,12 @@ def save_solution(name, infile, cnstfile, n, t, miss, viol, sol):
     if name is None:
         name = 'output.coveringarray'
 
+    if cnstfile is None:
+        cnstfile = ''
+
     f = open(name, 'w+')
 
+    '''
     f.write('Data File:                ' + infile + '\n')
     f.write('Constraint File:          ' + cnstfile + '\n')
     f.write('Size of Covering Array:   ' + str(n) + '\n')
@@ -530,6 +534,7 @@ def save_solution(name, infile, cnstfile, n, t, miss, viol, sol):
     f.write('Number of Missing Tuples: ' + str(miss) + '\n')
     f.write('Constraint Violation:     ' + str(viol) + '\n')
     f.write('\n')
+    '''
 
     f.write(str(len(sol)) + '\n')
     for s in sol:
