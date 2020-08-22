@@ -72,16 +72,16 @@
  * Check Test Case 2
 --------------------------------------------------------------------------------
 
-16. Send CP3OFF.                                                       [       ]
+16. Send CP3ON.                                                        [       ]
 
 17. Check TP3PS.                                                       [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
-18. Send CP3TRDIS.                                                     [       ]
+18. Send CP3TREN.                                                      [       ]
 
 19. Check TP3TREN.                                                     [       ]
-	  - Expected: DISA
+	  - Expected: ENAB
 	  - Observed: ______________________________
 
 20. Send CMPRXP3ON.                                                    [       ]
@@ -112,16 +112,16 @@
 	  - Expected: ON
 	  - Observed: ______________________________
 
-28. Send CP3TREN.                                                      [       ]
+28. Send CP3TRDIS.                                                     [       ]
 
 29. Check TP3TREN.                                                     [       ]
-	  - Expected: ENAB
+	  - Expected: DISA
 	  - Observed: ______________________________
 
-30. Send CMPRXP3OFF.                                                   [       ]
+30. Send CMPRXP3ON.                                                    [       ]
 
 31. Check TMPRXP3ST.                                                   [       ]
-	  - Expected: Disable
+	  - Expected: Enable
 	  - Observed: ______________________________
 
 32. Send CP3FPAON.                                                     [       ]
@@ -140,10 +140,10 @@
  * Check Test Case 4
 --------------------------------------------------------------------------------
 
-36. Send CP3ON.                                                        [       ]
+36. Send CP3OFF.                                                       [       ]
 
 37. Check TP3PS.                                                       [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
 38. Send CP3TREN.                                                      [       ]
@@ -180,16 +180,16 @@
 	  - Expected: ON
 	  - Observed: ______________________________
 
-48. Send CP3TRDIS.                                                     [       ]
+48. Send CP3TREN.                                                      [       ]
 
 49. Check TP3TREN.                                                     [       ]
-	  - Expected: DISA
+	  - Expected: ENAB
 	  - Observed: ______________________________
 
-50. Send CMPRXP3ON.                                                    [       ]
+50. Send CMPRXP3OFF.                                                   [       ]
 
 51. Check TMPRXP3ST.                                                   [       ]
-	  - Expected: Enable
+	  - Expected: Disable
 	  - Observed: ______________________________
 
 52. Send CP3FPAON.                                                     [       ]

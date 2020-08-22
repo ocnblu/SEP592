@@ -39,8 +39,8 @@ PROC_T TEST
 		//
 		////////////////////////////////////////////////////////////////////////////////////////////
 		
-		SEND CP2ON END SEND
-		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
+		SEND CP2OFF END SEND
+		CHECK TP2PS = "OFF", TIMEOUT = TLM_WAIT
 		
 		SEND CP2TRDIS END SEND
 		CHECK TP2TREN = "DISA", TIMEOUT = TLM_WAIT
@@ -57,8 +57,8 @@ PROC_T TEST
 		//
 		////////////////////////////////////////////////////////////////////////////////////////////
 		
-		SEND CP2OFF END SEND
-		CHECK TP2PS = "OFF", TIMEOUT = TLM_WAIT
+		SEND CP2ON END SEND
+		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
 		
 		SEND CP2TREN END SEND
 		CHECK TP2TREN = "ENAB", TIMEOUT = TLM_WAIT
@@ -75,8 +75,8 @@ PROC_T TEST
 		//
 		////////////////////////////////////////////////////////////////////////////////////////////
 		
-		SEND CP2OFF END SEND
-		CHECK TP2PS = "OFF", TIMEOUT = TLM_WAIT
+		SEND CP2ON END SEND
+		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
 		
 		SEND CP2TRDIS END SEND
 		CHECK TP2TREN = "DISA", TIMEOUT = TLM_WAIT

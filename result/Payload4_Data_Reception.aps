@@ -39,8 +39,8 @@ PROC_T TEST
 		//
 		////////////////////////////////////////////////////////////////////////////////////////////
 		
-		SEND CP4POFF END SEND
-		CHECK TP4PS = "OFF", TIMEOUT = TLM_WAIT
+		SEND CP4PON END SEND
+		CHECK TP4PS = "ON", TIMEOUT = TLM_WAIT
 		
 		SEND CP4TRDIS END SEND
 		CHECK TP4TREN = "DISA", TIMEOUT = TLM_WAIT
@@ -54,6 +54,24 @@ PROC_T TEST
 		////////////////////////////////////////////////////////////////////////////////////////////
 		//
 		// Check Test Case 2
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		SEND CP4POFF END SEND
+		CHECK TP4PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP4TREN END SEND
+		CHECK TP4TREN = "ENAB", TIMEOUT = TLM_WAIT
+		
+		SEND CMPRXP4OFF END SEND
+		CHECK TMPRXP4ST = "Disable", TIMEOUT = TLM_WAIT
+		
+		SEND CP4ENTOFFST END SEND
+		CHECK TP4STATUS = "OFF", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 3
 		//
 		////////////////////////////////////////////////////////////////////////////////////////////
 		
@@ -71,30 +89,12 @@ PROC_T TEST
 		
 		////////////////////////////////////////////////////////////////////////////////////////////
 		//
-		// Check Test Case 3
+		// Check Test Case 4
 		//
 		////////////////////////////////////////////////////////////////////////////////////////////
 		
 		SEND CP4PON END SEND
 		CHECK TP4PS = "ON", TIMEOUT = TLM_WAIT
-		
-		SEND CP4TRDIS END SEND
-		CHECK TP4TREN = "DISA", TIMEOUT = TLM_WAIT
-		
-		SEND CMPRXP4OFF END SEND
-		CHECK TMPRXP4ST = "Disable", TIMEOUT = TLM_WAIT
-		
-		SEND CP4ENTRDYST END SEND
-		CHECK TP4STATUS = "RDY", TIMEOUT = TLM_WAIT
-		
-		////////////////////////////////////////////////////////////////////////////////////////////
-		//
-		// Check Test Case 4
-		//
-		////////////////////////////////////////////////////////////////////////////////////////////
-		
-		SEND CP4POFF END SEND
-		CHECK TP4PS = "OFF", TIMEOUT = TLM_WAIT
 		
 		SEND CP4TREN END SEND
 		CHECK TP4TREN = "ENAB", TIMEOUT = TLM_WAIT
@@ -114,8 +114,8 @@ PROC_T TEST
 		SEND CP4POFF END SEND
 		CHECK TP4PS = "OFF", TIMEOUT = TLM_WAIT
 		
-		SEND CP4TREN END SEND
-		CHECK TP4TREN = "ENAB", TIMEOUT = TLM_WAIT
+		SEND CP4TRDIS END SEND
+		CHECK TP4TREN = "DISA", TIMEOUT = TLM_WAIT
 		
 		SEND CMPRXP4ON END SEND
 		CHECK TMPRXP4ST = "Enable", TIMEOUT = TLM_WAIT

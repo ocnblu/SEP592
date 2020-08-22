@@ -40,6 +40,27 @@ PROC_T TEST
 		//
 		////////////////////////////////////////////////////////////////////////////////////////////
 		
+		SEND CP3OFF END SEND
+		CHECK TP3PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CMXPON END SEND
+		CHECK TMXTXPS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP4POFF END SEND
+		CHECK TP4PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP1OFF END SEND
+		CHECK TP1PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP2OFF END SEND
+		CHECK TP2PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 2
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
 		SEND CP3ON END SEND
 		CHECK TP3PS = "ON", TIMEOUT = TLM_WAIT
 		
@@ -57,36 +78,15 @@ PROC_T TEST
 		
 		////////////////////////////////////////////////////////////////////////////////////////////
 		//
-		// Check Test Case 2
-		//
-		////////////////////////////////////////////////////////////////////////////////////////////
-		
-		SEND CP3OFF END SEND
-		CHECK TP3PS = "OFF", TIMEOUT = TLM_WAIT
-		
-		SEND CMXPON END SEND
-		CHECK TMXTXPS = "ON", TIMEOUT = TLM_WAIT
-		
-		SEND CP4PON END SEND
-		CHECK TP4PS = "ON", TIMEOUT = TLM_WAIT
-		
-		SEND CP1OFF END SEND
-		CHECK TP1PS = "OFF", TIMEOUT = TLM_WAIT
-		
-		SEND CP2OFF END SEND
-		CHECK TP2PS = "OFF", TIMEOUT = TLM_WAIT
-		
-		////////////////////////////////////////////////////////////////////////////////////////////
-		//
 		// Check Test Case 3
 		//
 		////////////////////////////////////////////////////////////////////////////////////////////
 		
-		SEND CP3OFF END SEND
-		CHECK TP3PS = "OFF", TIMEOUT = TLM_WAIT
+		SEND CP3ON END SEND
+		CHECK TP3PS = "ON", TIMEOUT = TLM_WAIT
 		
-		SEND CMXPOFF END SEND
-		CHECK TMXTXPS = "OFF", TIMEOUT = TLM_WAIT
+		SEND CMXPON END SEND
+		CHECK TMXTXPS = "ON", TIMEOUT = TLM_WAIT
 		
 		SEND CP4POFF END SEND
 		CHECK TP4PS = "OFF", TIMEOUT = TLM_WAIT
@@ -106,8 +106,8 @@ PROC_T TEST
 		SEND CP3ON END SEND
 		CHECK TP3PS = "ON", TIMEOUT = TLM_WAIT
 		
-		SEND CMXPON END SEND
-		CHECK TMXTXPS = "ON", TIMEOUT = TLM_WAIT
+		SEND CMXPOFF END SEND
+		CHECK TMXTXPS = "OFF", TIMEOUT = TLM_WAIT
 		
 		SEND CP4POFF END SEND
 		CHECK TP4PS = "OFF", TIMEOUT = TLM_WAIT
@@ -124,17 +124,17 @@ PROC_T TEST
 		//
 		////////////////////////////////////////////////////////////////////////////////////////////
 		
-		SEND CP3ON END SEND
-		CHECK TP3PS = "ON", TIMEOUT = TLM_WAIT
+		SEND CP3OFF END SEND
+		CHECK TP3PS = "OFF", TIMEOUT = TLM_WAIT
 		
 		SEND CMXPON END SEND
 		CHECK TMXTXPS = "ON", TIMEOUT = TLM_WAIT
 		
-		SEND CP4POFF END SEND
-		CHECK TP4PS = "OFF", TIMEOUT = TLM_WAIT
+		SEND CP4PON END SEND
+		CHECK TP4PS = "ON", TIMEOUT = TLM_WAIT
 		
-		SEND CP1ON END SEND
-		CHECK TP1PS = "ON", TIMEOUT = TLM_WAIT
+		SEND CP1OFF END SEND
+		CHECK TP1PS = "OFF", TIMEOUT = TLM_WAIT
 		
 		SEND CP2ON END SEND
 		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT

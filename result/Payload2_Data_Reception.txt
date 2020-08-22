@@ -34,10 +34,10 @@
  * Check Test Case 1
 --------------------------------------------------------------------------------
 
-5.  Send CP2ON.                                                        [       ]
+5.  Send CP2OFF.                                                       [       ]
 
 6.  Check TP2PS.                                                       [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
 7.  Send CP2TRDIS.                                                     [       ]
@@ -62,10 +62,10 @@
  * Check Test Case 2
 --------------------------------------------------------------------------------
 
-13. Send CP2OFF.                                                       [       ]
+13. Send CP2ON.                                                        [       ]
 
 14. Check TP2PS.                                                       [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
 15. Send CP2TREN.                                                      [       ]
@@ -90,10 +90,10 @@
  * Check Test Case 3
 --------------------------------------------------------------------------------
 
-21. Send CP2OFF.                                                       [       ]
+21. Send CP2ON.                                                        [       ]
 
 22. Check TP2PS.                                                       [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
 23. Send CP2TRDIS.                                                     [       ]

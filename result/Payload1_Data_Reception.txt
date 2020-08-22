@@ -74,10 +74,10 @@
 	  - Expected: ENAB
 	  - Observed: ______________________________
 
-17. Send CMPRXP1OFF.                                                   [       ]
+17. Send CMPRXP1ON.                                                    [       ]
 
 18. Check TMPRXP1ST.                                                   [       ]
-	  - Expected: Disable
+	  - Expected: Enable
 	  - Observed: ______________________________
 
 19. Send CP1SDREQSTOP.                                                 [       ]
@@ -96,22 +96,22 @@
 	  - Expected: ON
 	  - Observed: ______________________________
 
-23. Send CP1TRDIS.                                                     [       ]
+23. Send CP1TREN.                                                      [       ]
 
 24. Check TP1TREN.                                                     [       ]
-	  - Expected: DISA
+	  - Expected: ENAB
 	  - Observed: ______________________________
 
-25. Send CMPRXP1ON.                                                    [       ]
+25. Send CMPRXP1OFF.                                                   [       ]
 
 26. Check TMPRXP1ST.                                                   [       ]
-	  - Expected: Enable
+	  - Expected: Disable
 	  - Observed: ______________________________
 
-27. Send CP1SDREQSTOP.                                                 [       ]
+27. Send CP1SDREQSTART.                                                [       ]
 
 28. Check TP1DATA.                                                     [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
 --------------------------------------------------------------------------------
@@ -124,10 +124,10 @@
 	  - Expected: ON
 	  - Observed: ______________________________
 
-31. Send CP1TREN.                                                      [       ]
+31. Send CP1TRDIS.                                                     [       ]
 
 32. Check TP1TREN.                                                     [       ]
-	  - Expected: ENAB
+	  - Expected: DISA
 	  - Observed: ______________________________
 
 33. Send CMPRXP1ON.                                                    [       ]
