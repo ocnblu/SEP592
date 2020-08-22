@@ -1,0 +1,164 @@
+PROC_T TEST
+	// //*******************************************************************************************
+	// // GENERAL INFO
+	// //
+	// // TITLE: Payload3_Data_Reception
+	// // AUTHOR: Covering Array Tool
+	// // FILE GENERATED DATE: 2020-08-23
+	// // LAST MODIFIED DATE:  2020-08-23
+	// // DESCRIPTION: THIS SEQUENCE IS DEFINED FOR Payload3_Data_Reception
+	// //
+	// //*******************************************************************************************
+	
+	// //*******************************************************************************************
+	// // HISTORY
+	// //
+	// // 1. 2020-08-23 INITIAL
+	// //
+	// //*******************************************************************************************
+	
+	SUB main_sub
+		TLM_WAIT = 32
+		
+		OUTPUT "Payload3_Data_Reception Start: ", DATE$
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check default status
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		CHECK TP3VALO = "RDY", TIMEOUT = TLM_WAIT
+		CHECK TP3VALG = "OFF", TIMEOUT = TLM_WAIT
+		CHECK TMPRXP3ST = "Disable", TIMEOUT = TLM_WAIT
+		CHECK TP3TREN = "DISA", TIMEOUT = TLM_WAIT
+		CHECK TP3PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 1
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		SEND CP3OFF END SEND
+		CHECK TP3PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP3TRDIS END SEND
+		CHECK TP3TREN = "DISA", TIMEOUT = TLM_WAIT
+		
+		SEND CMPRXP3OFF END SEND
+		CHECK TMPRXP3ST = "Disable", TIMEOUT = TLM_WAIT
+		
+		SEND CP3FPAOFF END SEND
+		CHECK TP3VALG = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP3IMGSTOP END SEND
+		CHECK TP3VALO = "RDY", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 2
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		SEND CP3OFF END SEND
+		CHECK TP3PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP3TRDIS END SEND
+		CHECK TP3TREN = "DISA", TIMEOUT = TLM_WAIT
+		
+		SEND CMPRXP3ON END SEND
+		CHECK TMPRXP3ST = "Enable", TIMEOUT = TLM_WAIT
+		
+		SEND CP3FPAOFF END SEND
+		CHECK TP3VALG = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP3IMGSTOP END SEND
+		CHECK TP3VALO = "RDY", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 3
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		SEND CP3ON END SEND
+		CHECK TP3PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP3TREN END SEND
+		CHECK TP3TREN = "ENAB", TIMEOUT = TLM_WAIT
+		
+		SEND CMPRXP3OFF END SEND
+		CHECK TMPRXP3ST = "Disable", TIMEOUT = TLM_WAIT
+		
+		SEND CP3FPAON END SEND
+		CHECK TP3VALG = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP3IMGSTOP END SEND
+		CHECK TP3VALO = "RDY", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 4
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		SEND CP3ON END SEND
+		CHECK TP3PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP3TREN END SEND
+		CHECK TP3TREN = "ENAB", TIMEOUT = TLM_WAIT
+		
+		SEND CMPRXP3ON END SEND
+		CHECK TMPRXP3ST = "Enable", TIMEOUT = TLM_WAIT
+		
+		SEND CP3FPAOFF END SEND
+		CHECK TP3VALG = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP3IMGSTART END SEND
+		CHECK TP3VALO = "IMG", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 5
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		SEND CP3ON END SEND
+		CHECK TP3PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP3TRDIS END SEND
+		CHECK TP3TREN = "DISA", TIMEOUT = TLM_WAIT
+		
+		SEND CMPRXP3ON END SEND
+		CHECK TMPRXP3ST = "Enable", TIMEOUT = TLM_WAIT
+		
+		SEND CP3FPAON END SEND
+		CHECK TP3VALG = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP3IMGSTART END SEND
+		CHECK TP3VALO = "IMG", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check default status
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		SEND CP3OFF END SEND
+		SEND CP3TRDIS END SEND
+		SEND CMPRXP3OFF END SEND
+		SEND CP3FPAOFF END SEND
+		SEND CP3IMGSTOP END SEND
+		
+		CHECK TP3VALO = "RDY", TIMEOUT = TLM_WAIT
+		CHECK TP3VALG = "OFF", TIMEOUT = TLM_WAIT
+		CHECK TMPRXP3ST = "Disable", TIMEOUT = TLM_WAIT
+		CHECK TP3TREN = "DISA", TIMEOUT = TLM_WAIT
+		CHECK TP3PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		OUTPUT "Payload3_Data_Reception Stop: ", DATE$
+		
+		EXIT
+	END SUB
+END PROC

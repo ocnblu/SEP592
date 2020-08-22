@@ -1,0 +1,173 @@
+================================================================================
+
+	TITLE: Procedure for Payload2_Data_Reception
+	AUTHOR: Covering Array Tool
+	FILE GENERATED DATE: 2020-08-23
+	LAST MODIFIED DATE:  2020-08-23
+
+	HISTORY
+	 1. 2020-08-23 INITIAL
+
+================================================================================
+
+--------------------------------------------------------------------------------
+ * Check default status
+--------------------------------------------------------------------------------
+
+1.  Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+2.  Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+3.  Check TP2TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+4.  Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 1
+--------------------------------------------------------------------------------
+
+5.  Send CP2ON.                                                        [       ]
+
+6.  Check TP2PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+7.  Send CP2TRDIS.                                                     [       ]
+
+8.  Check TP2TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+9.  Send CMPRXP2OFF.                                                   [       ]
+
+10. Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+11. Send CP2ACQSTOP.                                                   [       ]
+
+12. Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 2
+--------------------------------------------------------------------------------
+
+13. Send CP2OFF.                                                       [       ]
+
+14. Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+15. Send CP2TREN.                                                      [       ]
+
+16. Check TP2TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+17. Send CMPRXP2OFF.                                                   [       ]
+
+18. Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+19. Send CP2ACQSTOP.                                                   [       ]
+
+20. Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 3
+--------------------------------------------------------------------------------
+
+21. Send CP2OFF.                                                       [       ]
+
+22. Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+23. Send CP2TRDIS.                                                     [       ]
+
+24. Check TP2TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+25. Send CMPRXP2ON.                                                    [       ]
+
+26. Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+27. Send CP2ACQSTOP.                                                   [       ]
+
+28. Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 4
+--------------------------------------------------------------------------------
+
+29. Send CP2ON.                                                        [       ]
+
+30. Check TP2PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+31. Send CP2TREN.                                                      [       ]
+
+32. Check TP2TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+33. Send CMPRXP2ON.                                                    [       ]
+
+34. Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+35. Send CP2ACQSTART.                                                  [       ]
+
+36. Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check default status
+--------------------------------------------------------------------------------
+
+37. Send CP2OFF.                                                       [       ]
+
+38. Send CP2TRDIS.                                                     [       ]
+
+39. Send CMPRXP2OFF.                                                   [       ]
+
+40. Send CP2ACQSTOP.                                                   [       ]
+
+41. Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+42. Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+43. Check TP2TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+44. Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+================================================================================

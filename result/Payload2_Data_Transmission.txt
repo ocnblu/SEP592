@@ -1,0 +1,575 @@
+================================================================================
+
+	TITLE: Procedure for Payload2_Data_Transmission
+	AUTHOR: Covering Array Tool
+	FILE GENERATED DATE: 2020-08-23
+	LAST MODIFIED DATE:  2020-08-23
+
+	HISTORY
+	 1. 2020-08-23 INITIAL
+
+================================================================================
+
+--------------------------------------------------------------------------------
+ * Check default status
+--------------------------------------------------------------------------------
+
+1.  Check TMPTXDATST.                                                  [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+2.  Check TMPTXST.                                                     [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+3.  Check TMXTXPONOFP.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+4.  Check TMXTXPS.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+5.  Check TMPTXP02ST.                                                  [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+6.  Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+7.  Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+8.  Check TP2TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+9.  Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 1
+--------------------------------------------------------------------------------
+
+10. Send CP2ON.                                                        [       ]
+
+11. Check TP2PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+12. Send CP2TRDIS.                                                     [       ]
+
+13. Check TP2TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+14. Send CMPRXP2OFF.                                                   [       ]
+
+15. Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+16. Send CP2ACQSTOP.                                                   [       ]
+
+17. Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+18. Send CMPTXP02DIS.                                                  [       ]
+
+19. Check TMPTXP02ST.                                                  [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+20. Send CMXPOFF.                                                      [       ]
+
+21. Check TMXTXPS.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+22. Send CMXTXPON.                                                     [       ]
+
+23. Check TMXTXPONOFP.                                                 [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+24. Send CMPTXDIS.                                                     [       ]
+
+25. Check TMPTXST.                                                     [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+26. Send CMPTXDATDIS.                                                  [       ]
+
+27. Check TMPTXDATST.                                                  [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 2
+--------------------------------------------------------------------------------
+
+28. Send CP2OFF.                                                       [       ]
+
+29. Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+30. Send CP2TREN.                                                      [       ]
+
+31. Check TP2TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+32. Send CMPRXP2ON.                                                    [       ]
+
+33. Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+34. Send CP2ACQSTOP.                                                   [       ]
+
+35. Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+36. Send CMPTXP02EN.                                                   [       ]
+
+37. Check TMPTXP02ST.                                                  [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+38. Send CMXPON.                                                       [       ]
+
+39. Check TMXTXPS.                                                     [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+40. Send CMXTXPON.                                                     [       ]
+
+41. Check TMXTXPONOFP.                                                 [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+42. Send CMPTXDIS.                                                     [       ]
+
+43. Check TMPTXST.                                                     [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+44. Send CMPTXDATDIS.                                                  [       ]
+
+45. Check TMPTXDATST.                                                  [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 3
+--------------------------------------------------------------------------------
+
+46. Send CP2ON.                                                        [       ]
+
+47. Check TP2PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+48. Send CP2TREN.                                                      [       ]
+
+49. Check TP2TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+50. Send CMPRXP2ON.                                                    [       ]
+
+51. Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+52. Send CP2ACQSTART.                                                  [       ]
+
+53. Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+54. Send CMPTXP02EN.                                                   [       ]
+
+55. Check TMPTXP02ST.                                                  [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+56. Send CMXPON.                                                       [       ]
+
+57. Check TMXTXPS.                                                     [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+58. Send CMXTXPOFF.                                                    [       ]
+
+59. Check TMXTXPONOFP.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+60. Send CMPTXDIS.                                                     [       ]
+
+61. Check TMPTXST.                                                     [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+62. Send CMPTXDATDIS.                                                  [       ]
+
+63. Check TMPTXDATST.                                                  [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 4
+--------------------------------------------------------------------------------
+
+64. Send CP2OFF.                                                       [       ]
+
+65. Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+66. Send CP2TREN.                                                      [       ]
+
+67. Check TP2TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+68. Send CMPRXP2OFF.                                                   [       ]
+
+69. Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+70. Send CP2ACQSTART.                                                  [       ]
+
+71. Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+72. Send CMPTXP02DIS.                                                  [       ]
+
+73. Check TMPTXP02ST.                                                  [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+74. Send CMXPOFF.                                                      [       ]
+
+75. Check TMXTXPS.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+76. Send CMXTXPOFF.                                                    [       ]
+
+77. Check TMXTXPONOFP.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+78. Send CMPTXEN.                                                      [       ]
+
+79. Check TMPTXST.                                                     [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+80. Send CMPTXDATDIS.                                                  [       ]
+
+81. Check TMPTXDATST.                                                  [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 5
+--------------------------------------------------------------------------------
+
+82. Send CP2ON.                                                        [       ]
+
+83. Check TP2PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+84. Send CP2TRDIS.                                                     [       ]
+
+85. Check TP2TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+86. Send CMPRXP2ON.                                                    [       ]
+
+87. Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+88. Send CP2ACQSTOP.                                                   [       ]
+
+89. Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+90. Send CMPTXP02DIS.                                                  [       ]
+
+91. Check TMPTXP02ST.                                                  [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+92. Send CMXPOFF.                                                      [       ]
+
+93. Check TMXTXPS.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+94. Send CMXTXPON.                                                     [       ]
+
+95. Check TMXTXPONOFP.                                                 [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+96. Send CMPTXEN.                                                      [       ]
+
+97. Check TMPTXST.                                                     [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+98. Send CMPTXDATEN.                                                   [       ]
+
+99. Check TMPTXDATST.                                                  [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 6
+--------------------------------------------------------------------------------
+
+100.Send CP2OFF.                                                       [       ]
+
+101.Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+102.Send CP2TREN.                                                      [       ]
+
+103.Check TP2TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+104.Send CMPRXP2ON.                                                    [       ]
+
+105.Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+106.Send CP2ACQSTART.                                                  [       ]
+
+107.Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+108.Send CMPTXP02DIS.                                                  [       ]
+
+109.Check TMPTXP02ST.                                                  [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+110.Send CMXPON.                                                       [       ]
+
+111.Check TMXTXPS.                                                     [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+112.Send CMXTXPON.                                                     [       ]
+
+113.Check TMXTXPONOFP.                                                 [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+114.Send CMPTXEN.                                                      [       ]
+
+115.Check TMPTXST.                                                     [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+116.Send CMPTXDATEN.                                                   [       ]
+
+117.Check TMPTXDATST.                                                  [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 7
+--------------------------------------------------------------------------------
+
+118.Send CP2ON.                                                        [       ]
+
+119.Check TP2PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+120.Send CP2TRDIS.                                                     [       ]
+
+121.Check TP2TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+122.Send CMPRXP2ON.                                                    [       ]
+
+123.Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+124.Send CP2ACQSTOP.                                                   [       ]
+
+125.Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+126.Send CMPTXP02EN.                                                   [       ]
+
+127.Check TMPTXP02ST.                                                  [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+128.Send CMXPOFF.                                                      [       ]
+
+129.Check TMXTXPS.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+130.Send CMXTXPOFF.                                                    [       ]
+
+131.Check TMXTXPONOFP.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+132.Send CMPTXEN.                                                      [       ]
+
+133.Check TMPTXST.                                                     [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+134.Send CMPTXDATEN.                                                   [       ]
+
+135.Check TMPTXDATST.                                                  [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 8
+--------------------------------------------------------------------------------
+
+136.Send CP2OFF.                                                       [       ]
+
+137.Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+138.Send CP2TRDIS.                                                     [       ]
+
+139.Check TP2TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+140.Send CMPRXP2OFF.                                                   [       ]
+
+141.Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+142.Send CP2ACQSTOP.                                                   [       ]
+
+143.Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+144.Send CMPTXP02EN.                                                   [       ]
+
+145.Check TMPTXP02ST.                                                  [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+146.Send CMXPON.                                                       [       ]
+
+147.Check TMXTXPS.                                                     [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+148.Send CMXTXPOFF.                                                    [       ]
+
+149.Check TMXTXPONOFP.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+150.Send CMPTXEN.                                                      [       ]
+
+151.Check TMPTXST.                                                     [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+152.Send CMPTXDATEN.                                                   [       ]
+
+153.Check TMPTXDATST.                                                  [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check default status
+--------------------------------------------------------------------------------
+
+154.Send CP2OFF.                                                       [       ]
+
+155.Send CP2TRDIS.                                                     [       ]
+
+156.Send CMPRXP2OFF.                                                   [       ]
+
+157.Send CP2ACQSTOP.                                                   [       ]
+
+158.Send CMPTXP02DIS.                                                  [       ]
+
+159.Send CMXPOFF.                                                      [       ]
+
+160.Send CMXTXPOFF.                                                    [       ]
+
+161.Send CMPTXDIS.                                                     [       ]
+
+162.Send CMPTXDATDIS.                                                  [       ]
+
+163.Check TMPTXDATST.                                                  [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+164.Check TMPTXST.                                                     [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+165.Check TMXTXPONOFP.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+166.Check TMXTXPS.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+167.Check TMPTXP02ST.                                                  [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+168.Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+169.Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+170.Check TP2TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+171.Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+================================================================================

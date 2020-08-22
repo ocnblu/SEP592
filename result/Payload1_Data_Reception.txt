@@ -1,0 +1,173 @@
+================================================================================
+
+	TITLE: Procedure for Payload1_Data_Reception
+	AUTHOR: Covering Array Tool
+	FILE GENERATED DATE: 2020-08-23
+	LAST MODIFIED DATE:  2020-08-23
+
+	HISTORY
+	 1. 2020-08-23 INITIAL
+
+================================================================================
+
+--------------------------------------------------------------------------------
+ * Check default status
+--------------------------------------------------------------------------------
+
+1.  Check TP1DATA.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+2.  Check TMPRXP1ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+3.  Check TP1TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+4.  Check TP1PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 1
+--------------------------------------------------------------------------------
+
+5.  Send CP1OFF.                                                       [       ]
+
+6.  Check TP1PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+7.  Send CP1TRDIS.                                                     [       ]
+
+8.  Check TP1TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+9.  Send CMPRXP1OFF.                                                   [       ]
+
+10. Check TMPRXP1ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+11. Send CP1SDREQSTOP.                                                 [       ]
+
+12. Check TP1DATA.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 2
+--------------------------------------------------------------------------------
+
+13. Send CP1ON.                                                        [       ]
+
+14. Check TP1PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+15. Send CP1TREN.                                                      [       ]
+
+16. Check TP1TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+17. Send CMPRXP1OFF.                                                   [       ]
+
+18. Check TMPRXP1ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+19. Send CP1SDREQSTOP.                                                 [       ]
+
+20. Check TP1DATA.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 3
+--------------------------------------------------------------------------------
+
+21. Send CP1ON.                                                        [       ]
+
+22. Check TP1PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+23. Send CP1TRDIS.                                                     [       ]
+
+24. Check TP1TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+25. Send CMPRXP1ON.                                                    [       ]
+
+26. Check TMPRXP1ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+27. Send CP1SDREQSTOP.                                                 [       ]
+
+28. Check TP1DATA.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 4
+--------------------------------------------------------------------------------
+
+29. Send CP1ON.                                                        [       ]
+
+30. Check TP1PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+31. Send CP1TREN.                                                      [       ]
+
+32. Check TP1TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+33. Send CMPRXP1ON.                                                    [       ]
+
+34. Check TMPRXP1ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+35. Send CP1SDREQSTART.                                                [       ]
+
+36. Check TP1DATA.                                                     [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check default status
+--------------------------------------------------------------------------------
+
+37. Send CP1OFF.                                                       [       ]
+
+38. Send CP1TRDIS.                                                     [       ]
+
+39. Send CMPRXP1OFF.                                                   [       ]
+
+40. Send CP1SDREQSTOP.                                                 [       ]
+
+41. Check TP1DATA.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+42. Check TMPRXP1ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+43. Check TP1TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+44. Check TP1PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+================================================================================

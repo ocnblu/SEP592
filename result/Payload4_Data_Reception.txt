@@ -1,0 +1,229 @@
+================================================================================
+
+	TITLE: Procedure for Payload4_Data_Reception
+	AUTHOR: Covering Array Tool
+	FILE GENERATED DATE: 2020-08-23
+	LAST MODIFIED DATE:  2020-08-23
+
+	HISTORY
+	 1. 2020-08-23 INITIAL
+
+================================================================================
+
+--------------------------------------------------------------------------------
+ * Check default status
+--------------------------------------------------------------------------------
+
+1.  Check TP4STATUS.                                                   [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+2.  Check TMPRXP4ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+3.  Check TP4TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+4.  Check TP4PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 1
+--------------------------------------------------------------------------------
+
+5.  Send CP4POFF.                                                      [       ]
+
+6.  Check TP4PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+7.  Send CP4TRDIS.                                                     [       ]
+
+8.  Check TP4TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+9.  Send CMPRXP4OFF.                                                   [       ]
+
+10. Check TMPRXP4ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+11. Send CP4ENTOFFST.                                                  [       ]
+
+12. Check TP4STATUS.                                                   [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 2
+--------------------------------------------------------------------------------
+
+13. Send CP4PON.                                                       [       ]
+
+14. Check TP4PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+15. Send CP4TREN.                                                      [       ]
+
+16. Check TP4TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+17. Send CMPRXP4ON.                                                    [       ]
+
+18. Check TMPRXP4ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+19. Send CP4ENTOFFST.                                                  [       ]
+
+20. Check TP4STATUS.                                                   [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 3
+--------------------------------------------------------------------------------
+
+21. Send CP4PON.                                                       [       ]
+
+22. Check TP4PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+23. Send CP4TRDIS.                                                     [       ]
+
+24. Check TP4TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+25. Send CMPRXP4OFF.                                                   [       ]
+
+26. Check TMPRXP4ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+27. Send CP4ENTRDYST.                                                  [       ]
+
+28. Check TP4STATUS.                                                   [       ]
+	  - Expected: RDY
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 4
+--------------------------------------------------------------------------------
+
+29. Send CP4POFF.                                                      [       ]
+
+30. Check TP4PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+31. Send CP4TREN.                                                      [       ]
+
+32. Check TP4TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+33. Send CMPRXP4OFF.                                                   [       ]
+
+34. Check TMPRXP4ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+35. Send CP4ENTRDYST.                                                  [       ]
+
+36. Check TP4STATUS.                                                   [       ]
+	  - Expected: RDY
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 5
+--------------------------------------------------------------------------------
+
+37. Send CP4POFF.                                                      [       ]
+
+38. Check TP4PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+39. Send CP4TREN.                                                      [       ]
+
+40. Check TP4TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+41. Send CMPRXP4ON.                                                    [       ]
+
+42. Check TMPRXP4ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+43. Send CP4ENTRDYST.                                                  [       ]
+
+44. Check TP4STATUS.                                                   [       ]
+	  - Expected: RDY
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 6
+--------------------------------------------------------------------------------
+
+45. Send CP4PON.                                                       [       ]
+
+46. Check TP4PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+47. Send CP4TREN.                                                      [       ]
+
+48. Check TP4TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+49. Send CMPRXP4ON.                                                    [       ]
+
+50. Check TMPRXP4ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+51. Send CP4ENTIMGST.                                                  [       ]
+
+52. Check TP4STATUS.                                                   [       ]
+	  - Expected: IMG
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check default status
+--------------------------------------------------------------------------------
+
+53. Send CP4POFF.                                                      [       ]
+
+54. Send CP4TRDIS.                                                     [       ]
+
+55. Send CMPRXP4OFF.                                                   [       ]
+
+56. Send CP4ENTOFFST.                                                  [       ]
+
+57. Check TP4STATUS.                                                   [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+58. Check TMPRXP4ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+59. Check TP4TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+60. Check TP4PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+================================================================================

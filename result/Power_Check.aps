@@ -1,0 +1,185 @@
+PROC_T TEST
+	// //*******************************************************************************************
+	// // GENERAL INFO
+	// //
+	// // TITLE: Power_Check
+	// // AUTHOR: Covering Array Tool
+	// // FILE GENERATED DATE: 2020-08-23
+	// // LAST MODIFIED DATE:  2020-08-23
+	// // DESCRIPTION: THIS SEQUENCE IS DEFINED FOR Power_Check
+	// //
+	// //*******************************************************************************************
+	
+	// //*******************************************************************************************
+	// // HISTORY
+	// //
+	// // 1. 2020-08-23 INITIAL
+	// //
+	// //*******************************************************************************************
+	
+	SUB main_sub
+		TLM_WAIT = 32
+		
+		OUTPUT "Power_Check Start: ", DATE$
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check default status
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		CHECK TP2PS = "OFF", TIMEOUT = TLM_WAIT
+		CHECK TP1PS = "OFF", TIMEOUT = TLM_WAIT
+		CHECK TP4PS = "OFF", TIMEOUT = TLM_WAIT
+		CHECK TMXTXPS = "OFF", TIMEOUT = TLM_WAIT
+		CHECK TP3PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 1
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		SEND CP3ON END SEND
+		CHECK TP3PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CMXPOFF END SEND
+		CHECK TMXTXPS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP4PON END SEND
+		CHECK TP4PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP1OFF END SEND
+		CHECK TP1PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP2OFF END SEND
+		CHECK TP2PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 2
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		SEND CP3OFF END SEND
+		CHECK TP3PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CMXPON END SEND
+		CHECK TMXTXPS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP4PON END SEND
+		CHECK TP4PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP1OFF END SEND
+		CHECK TP1PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP2OFF END SEND
+		CHECK TP2PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 3
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		SEND CP3OFF END SEND
+		CHECK TP3PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CMXPOFF END SEND
+		CHECK TMXTXPS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP4POFF END SEND
+		CHECK TP4PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP1ON END SEND
+		CHECK TP1PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP2OFF END SEND
+		CHECK TP2PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 4
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		SEND CP3ON END SEND
+		CHECK TP3PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CMXPON END SEND
+		CHECK TMXTXPS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP4POFF END SEND
+		CHECK TP4PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP1OFF END SEND
+		CHECK TP1PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP2ON END SEND
+		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 5
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		SEND CP3ON END SEND
+		CHECK TP3PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CMXPON END SEND
+		CHECK TMXTXPS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP4POFF END SEND
+		CHECK TP4PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP1ON END SEND
+		CHECK TP1PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP2ON END SEND
+		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 6
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		SEND CP3OFF END SEND
+		CHECK TP3PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CMXPOFF END SEND
+		CHECK TMXTXPS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CP4PON END SEND
+		CHECK TP4PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP1ON END SEND
+		CHECK TP1PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP2ON END SEND
+		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////////////////////////
+		//
+		// Check default status
+		//
+		////////////////////////////////////////////////////////////////////////////////////////////
+		
+		SEND CP3OFF END SEND
+		SEND CMXPOFF END SEND
+		SEND CP4POFF END SEND
+		SEND CP1OFF END SEND
+		SEND CP2OFF END SEND
+		
+		CHECK TP2PS = "OFF", TIMEOUT = TLM_WAIT
+		CHECK TP1PS = "OFF", TIMEOUT = TLM_WAIT
+		CHECK TP4PS = "OFF", TIMEOUT = TLM_WAIT
+		CHECK TMXTXPS = "OFF", TIMEOUT = TLM_WAIT
+		CHECK TP3PS = "OFF", TIMEOUT = TLM_WAIT
+		
+		OUTPUT "Power_Check Stop: ", DATE$
+		
+		EXIT
+	END SUB
+END PROC

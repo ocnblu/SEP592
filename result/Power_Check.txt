@@ -1,0 +1,275 @@
+================================================================================
+
+	TITLE: Procedure for Power_Check
+	AUTHOR: Covering Array Tool
+	FILE GENERATED DATE: 2020-08-23
+	LAST MODIFIED DATE:  2020-08-23
+
+	HISTORY
+	 1. 2020-08-23 INITIAL
+
+================================================================================
+
+--------------------------------------------------------------------------------
+ * Check default status
+--------------------------------------------------------------------------------
+
+1.  Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+2.  Check TP1PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+3.  Check TP4PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+4.  Check TMXTXPS.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+5.  Check TP3PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 1
+--------------------------------------------------------------------------------
+
+6.  Send CP3ON.                                                        [       ]
+
+7.  Check TP3PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+8.  Send CMXPOFF.                                                      [       ]
+
+9.  Check TMXTXPS.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+10. Send CP4PON.                                                       [       ]
+
+11. Check TP4PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+12. Send CP1OFF.                                                       [       ]
+
+13. Check TP1PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+14. Send CP2OFF.                                                       [       ]
+
+15. Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 2
+--------------------------------------------------------------------------------
+
+16. Send CP3OFF.                                                       [       ]
+
+17. Check TP3PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+18. Send CMXPON.                                                       [       ]
+
+19. Check TMXTXPS.                                                     [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+20. Send CP4PON.                                                       [       ]
+
+21. Check TP4PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+22. Send CP1OFF.                                                       [       ]
+
+23. Check TP1PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+24. Send CP2OFF.                                                       [       ]
+
+25. Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 3
+--------------------------------------------------------------------------------
+
+26. Send CP3OFF.                                                       [       ]
+
+27. Check TP3PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+28. Send CMXPOFF.                                                      [       ]
+
+29. Check TMXTXPS.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+30. Send CP4POFF.                                                      [       ]
+
+31. Check TP4PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+32. Send CP1ON.                                                        [       ]
+
+33. Check TP1PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+34. Send CP2OFF.                                                       [       ]
+
+35. Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 4
+--------------------------------------------------------------------------------
+
+36. Send CP3ON.                                                        [       ]
+
+37. Check TP3PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+38. Send CMXPON.                                                       [       ]
+
+39. Check TMXTXPS.                                                     [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+40. Send CP4POFF.                                                      [       ]
+
+41. Check TP4PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+42. Send CP1OFF.                                                       [       ]
+
+43. Check TP1PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+44. Send CP2ON.                                                        [       ]
+
+45. Check TP2PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 5
+--------------------------------------------------------------------------------
+
+46. Send CP3ON.                                                        [       ]
+
+47. Check TP3PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+48. Send CMXPON.                                                       [       ]
+
+49. Check TMXTXPS.                                                     [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+50. Send CP4POFF.                                                      [       ]
+
+51. Check TP4PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+52. Send CP1ON.                                                        [       ]
+
+53. Check TP1PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+54. Send CP2ON.                                                        [       ]
+
+55. Check TP2PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 6
+--------------------------------------------------------------------------------
+
+56. Send CP3OFF.                                                       [       ]
+
+57. Check TP3PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+58. Send CMXPOFF.                                                      [       ]
+
+59. Check TMXTXPS.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+60. Send CP4PON.                                                       [       ]
+
+61. Check TP4PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+62. Send CP1ON.                                                        [       ]
+
+63. Check TP1PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+64. Send CP2ON.                                                        [       ]
+
+65. Check TP2PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check default status
+--------------------------------------------------------------------------------
+
+66. Send CP3OFF.                                                       [       ]
+
+67. Send CMXPOFF.                                                      [       ]
+
+68. Send CP4POFF.                                                      [       ]
+
+69. Send CP1OFF.                                                       [       ]
+
+70. Send CP2OFF.                                                       [       ]
+
+71. Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+72. Check TP1PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+73. Check TP4PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+74. Check TMXTXPS.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+75. Check TP3PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+================================================================================

@@ -1,0 +1,241 @@
+================================================================================
+
+	TITLE: Procedure for Payload3_Data_Reception
+	AUTHOR: Covering Array Tool
+	FILE GENERATED DATE: 2020-08-23
+	LAST MODIFIED DATE:  2020-08-23
+
+	HISTORY
+	 1. 2020-08-23 INITIAL
+
+================================================================================
+
+--------------------------------------------------------------------------------
+ * Check default status
+--------------------------------------------------------------------------------
+
+1.  Check TP3VALO.                                                     [       ]
+	  - Expected: RDY
+	  - Observed: ______________________________
+
+2.  Check TP3VALG.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+3.  Check TMPRXP3ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+4.  Check TP3TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+5.  Check TP3PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 1
+--------------------------------------------------------------------------------
+
+6.  Send CP3OFF.                                                       [       ]
+
+7.  Check TP3PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+8.  Send CP3TRDIS.                                                     [       ]
+
+9.  Check TP3TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+10. Send CMPRXP3OFF.                                                   [       ]
+
+11. Check TMPRXP3ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+12. Send CP3FPAOFF.                                                    [       ]
+
+13. Check TP3VALG.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+14. Send CP3IMGSTOP.                                                   [       ]
+
+15. Check TP3VALO.                                                     [       ]
+	  - Expected: RDY
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 2
+--------------------------------------------------------------------------------
+
+16. Send CP3OFF.                                                       [       ]
+
+17. Check TP3PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+18. Send CP3TRDIS.                                                     [       ]
+
+19. Check TP3TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+20. Send CMPRXP3ON.                                                    [       ]
+
+21. Check TMPRXP3ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+22. Send CP3FPAOFF.                                                    [       ]
+
+23. Check TP3VALG.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+24. Send CP3IMGSTOP.                                                   [       ]
+
+25. Check TP3VALO.                                                     [       ]
+	  - Expected: RDY
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 3
+--------------------------------------------------------------------------------
+
+26. Send CP3ON.                                                        [       ]
+
+27. Check TP3PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+28. Send CP3TREN.                                                      [       ]
+
+29. Check TP3TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+30. Send CMPRXP3OFF.                                                   [       ]
+
+31. Check TMPRXP3ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+32. Send CP3FPAON.                                                     [       ]
+
+33. Check TP3VALG.                                                     [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+34. Send CP3IMGSTOP.                                                   [       ]
+
+35. Check TP3VALO.                                                     [       ]
+	  - Expected: RDY
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 4
+--------------------------------------------------------------------------------
+
+36. Send CP3ON.                                                        [       ]
+
+37. Check TP3PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+38. Send CP3TREN.                                                      [       ]
+
+39. Check TP3TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+40. Send CMPRXP3ON.                                                    [       ]
+
+41. Check TMPRXP3ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+42. Send CP3FPAOFF.                                                    [       ]
+
+43. Check TP3VALG.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+44. Send CP3IMGSTART.                                                  [       ]
+
+45. Check TP3VALO.                                                     [       ]
+	  - Expected: IMG
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 5
+--------------------------------------------------------------------------------
+
+46. Send CP3ON.                                                        [       ]
+
+47. Check TP3PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+48. Send CP3TRDIS.                                                     [       ]
+
+49. Check TP3TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+50. Send CMPRXP3ON.                                                    [       ]
+
+51. Check TMPRXP3ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+52. Send CP3FPAON.                                                     [       ]
+
+53. Check TP3VALG.                                                     [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+54. Send CP3IMGSTART.                                                  [       ]
+
+55. Check TP3VALO.                                                     [       ]
+	  - Expected: IMG
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check default status
+--------------------------------------------------------------------------------
+
+56. Send CP3OFF.                                                       [       ]
+
+57. Send CP3TRDIS.                                                     [       ]
+
+58. Send CMPRXP3OFF.                                                   [       ]
+
+59. Send CP3FPAOFF.                                                    [       ]
+
+60. Send CP3IMGSTOP.                                                   [       ]
+
+61. Check TP3VALO.                                                     [       ]
+	  - Expected: RDY
+	  - Observed: ______________________________
+
+62. Check TP3VALG.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+63. Check TMPRXP3ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+64. Check TP3TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+65. Check TP3PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+================================================================================
