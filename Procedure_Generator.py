@@ -42,13 +42,15 @@ def parse_tlm(data):
         mnemonic = data[i][0]
         status = []
 
+        default = int(data[i][2])
+
         for j in range(3):
-            if len(data[i][2 + j]) > 0:
-                status.append(data[i][2 + j])
+            if len(data[i][3 + j]) > 0:
+                status.append(data[i][3 + j])
             else:
                 break
 
-        ret.append([mnemonic, status])
+        ret.append([mnemonic, status, default])
 
     return ret
 
@@ -86,13 +88,26 @@ def get_index(tlm, mnemonic, num):
     return ret
 
 
+def get_default(tlm, mnemonic):
+    ret = -1
+
+    for t in tlm:
+        if t[0] == mnemonic:
+            ret = t[1][t[2]]
+
+    if ret == -1:
+        print('ERROR: ' + mnemonic + ' does NOT have the default status.')
+
+    return ret
+
+
 def parse_chunk(chunk):
     num = 0
-    title = ''
+    constraint = []
     mnemonic = []
 
     if chunk[0][0] == 'Test Title':
-        title = chunk[0][1]
+        title = chunk[0][1].replace(' ', '_')
 
     if chunk[1][0] == 'Mnemonic':
         for i in range(1, len(chunk[1])):
@@ -103,13 +118,11 @@ def parse_chunk(chunk):
             else:
                 break
 
-    constraint = []
-
-    if chunk[2][0] == 'Constraint' and chunk[2 + 1][0] == 'Constraint Value':
+    if chunk[2][0] == 'Value':
         for i in range(1, num):
-            constraint.append([[chunk[2][i], chunk[2 + 1][i]]])
+            constraint.append([[mnemonic[i - 1], chunk[2][i]]])
 
-    for j in range(4, len(chunk), 2):
+    for j in range(3, len(chunk), 2):
         if chunk[j][0] == 'Constraint' and chunk[j + 1][0] == 'Constraint Value':
             for i in range(1, num):
                 constraint[i - 1].append([chunk[j][i], chunk[j + 1][i]])
@@ -179,7 +192,7 @@ def generate_procedure(ca, c, case, cmd, tlm):
 
     for m in mnemonic:
         ret.append([True, 'Check ' + m + '.'])
-        ret.append([False, '  - Expected: ' + get_status(tlm, m)[0]])
+        ret.append([False, '  - Expected: ' + get_default(tlm, m)])
         ret.append([False, '  - Observed: ______________________________'])
         ret.append([None, ''])
 
@@ -206,12 +219,12 @@ def generate_procedure(ca, c, case, cmd, tlm):
 
     for j in range(len(mnemonic) - 1, -1, -1):
         m = mnemonic[j]
-        ret.append([True, 'Send ' + get_command(cmd, m, get_status(tlm, m)[0]) + '.'])
+        ret.append([True, 'Send ' + get_command(cmd, m, get_default(tlm, m)) + '.'])
         ret.append([None, ''])
 
     for m in mnemonic:
         ret.append([True, 'Check ' + m + '.'])
-        ret.append([False, '  - Expected: ' + get_status(tlm, m)[0]])
+        ret.append([False, '  - Expected: ' + get_default(tlm, m)])
         ret.append([False, '  - Observed: ______________________________'])
         ret.append([None, ''])
 
@@ -221,9 +234,6 @@ def generate_procedure(ca, c, case, cmd, tlm):
 
 
 def save_procedure(name, proc):
-    if name is None:
-        name = 'output.txt'
-
     print('Output File:', name)
     
     line = 1
@@ -263,7 +273,7 @@ def save_procedure(name, proc):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Generate the code for the satellite test.')
-    parser.add_argument('ca_name', help='Name of covering array file to open')
+    parser.add_argument('ca_name', help='Name of covering array file to open (w/o extension)')
     parser.add_argument('case_name', help='Name of test case file to open')
     parser.add_argument('cmd_name', help='Name of telemetry file to open')
     parser.add_argument('tlm_name', help='Name of telemetry file to open')
@@ -274,11 +284,11 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     c = int(args.testcase) - 1
-    ca = open_ca_file(args.ca_name)
+    ca = open_ca_file(args.ca_name + '.coveringarray')
     case = parse_case(open_csv_file(args.case_name))
     cmd = parse_cmd(open_csv_file(args.cmd_name))
     tlm = parse_tlm(open_csv_file(args.tlm_name))
 
     procedure = generate_procedure(ca, c, case, cmd, tlm)
 
-    save_procedure(args.output, procedure)
+    save_procedure(args.ca_name + '.txt', procedure)

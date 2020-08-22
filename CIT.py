@@ -31,6 +31,14 @@ def build_possible_tuple(t, data, constraint):
 
     possible_tuple = []
 
+    for i in range(len(constraint)):
+        for j in range(i + 1, len(constraint)):
+            if constraint[i][0] == constraint[j][0]:
+                if constraint[i][1][1] == constraint[j][1][0]:
+                    constraint.append([constraint[i][0], [constraint[i][1][0], constraint[j][1][1]]])
+                elif constraint[i][1][0] == constraint[j][1][1]:
+                    constraint.append([constraint[i][0], [constraint[j][1][0], constraint[i][1][1]]])
+
     for tup in tuples:
         is_del = False
 
@@ -67,21 +75,21 @@ def build_possible_tuple(t, data, constraint):
 
 
 def gen_row(data):
-    t = []
+    ret = []
 
     for j in range(len(data)):
-        t.append(random.choice(data[j]))
+        ret.append(random.choice(data[j]))
 
-    return t
+    return ret
 
 
 def initial_array(t, data, n):
-    a = []
+    ret = []
 
     for i in range(n):
-        a.append(gen_row(data))
+        ret.append(gen_row(data))
 
-    return a
+    return ret
 
 
 def count_missing_tuple(a):
@@ -407,31 +415,31 @@ def open_data_file(name):
 def open_const_file(name):
     ret = []
 
-    if name is not None:
+    try:
         f = open(name, 'r')
+    except:
+        print('Constraints file is NOT found.')
+        return ret
 
-        row = int(f.readline().strip().rstrip())
+    row = int(f.readline().strip().rstrip())
 
-        for i in range(row):
-            column = int(f.readline().strip().rstrip())
-            dat = f.readline().strip().rstrip().split(' ')
+    for i in range(row):
+        column = int(f.readline().strip().rstrip())
+        dat = f.readline().strip().rstrip().split(' ')
 
-            tmp = []
+        tmp = []
 
-            for j in range(column):
-                tmp.append(int(dat[2 * j + 1]))
+        for j in range(column):
+            tmp.append(int(dat[2 * j + 1]))
 
-            ret.append([dat[2], tmp])
+        ret.append([dat[2], tmp])
 
-        f.close()
+    f.close()
 
     return ret
 
 
 def save_solution(name, sol):
-    if name is None:
-        name = 'output.coveringarray'
-
     f = open(name, 'w+')
 
     f.write(str(len(sol)) + '\n')
@@ -446,11 +454,7 @@ def save_solution(name, sol):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Find the covering array.')
-    parser.add_argument('model_name', help='Name of model file to open')
-    parser.add_argument('-c', dest='constraint', required=False, default=None,
-                        help='Set the name of constraint file')
-    parser.add_argument('-o', dest='output', required=False, default=None,
-                        help='Set the name of output file')
+    parser.add_argument('model_name', help='Name of model file to open (w/o extension)')
     parser.add_argument('-n', dest='size', required=False, default=10,
                         help='Set the target size of the covering array (Default: 10)')
     parser.add_argument('-i', dest='improve', required=False, default=256,
@@ -463,8 +467,9 @@ if __name__ == '__main__':
                         help='Set the decremental rate of the temperature (Default: 0.9999)')
     args = parser.parse_args()
 
-    filename = args.model_name
-    constraint_filename = args.constraint
+    filename = args.model_name + '.citmodel'
+    constraint_filename = args.model_name + '.constraints'
+    output_filename = args.model_name + '.coveringarray'
     n = int(args.size)
     max_no_improvement = int(args.improve)
     max_fix_time = int(args.fix_time)
@@ -501,4 +506,4 @@ if __name__ == '__main__':
     for i in range(len(solution)):
         print(i + 1, list(solution[i]))
 
-    save_solution(args.output, solution)
+    save_solution(output_filename, solution)

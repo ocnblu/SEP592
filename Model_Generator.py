@@ -23,33 +23,52 @@ def parse_tlm(data):
 
     for i in range(1, len(data)):
         mnemonic = data[i][0]
-        status = []
+        default = int(data[i][2]) + 3
 
-        for j in range(3):
-            if len(data[i][2 + j]) > 0:
-                status.append(data[i][2 + j])
+        for j in range(3, len(data[i])):
+            if len(data[i][j]) > 0:
+                ret.append([mnemonic, data[i][j], j - 3, default == j])
             else:
                 break
-
-        ret.append([mnemonic, status])
 
     return ret
 
 
 def get_status(data, mnemonic):
+    ret = []
+
     for d in data:
         if d[0] == mnemonic:
-            return d[1]
+            ret.append(d[1])
+
+    if len(ret) == 0:
+        print('ERROR: Telemetry does NOT have the mnemonic: ' + mnemonic)
+
+    return ret
+
+
+def get_value(data, mnemonic, status):
+    ret = -1
+
+    for d in data:
+        if d[0] == mnemonic and d[1] == status:
+            ret = d[2]
+
+    if ret == -1:
+        print('ERROR: ' + mnemonic + ' does NOT have the status: ' + status)
+
+    return ret
 
 
 def parse_chunk(chunk):
     num = 0
+    constraint = []
+    mnemonic = []
 
     if chunk[0][0] == 'Test Title':
         title = chunk[0][1].replace(' ', '_')
 
     if chunk[1][0] == 'Mnemonic':
-        mnemonic = []
         for i in range(1, len(chunk[1])):
             num = i
 
@@ -58,13 +77,11 @@ def parse_chunk(chunk):
             else:
                 break
 
-    constraint = []
-
-    if chunk[2][0] == 'Constraint' and chunk[2 + 1][0] == 'Constraint Value':
+    if chunk[2][0] == 'Value':
         for i in range(1, num):
-            constraint.append([[chunk[2][i], chunk[2 + 1][i]]])
+            constraint.append([[mnemonic[i - 1], chunk[2][i]]])
 
-    for j in range(4, len(chunk), 2):
+    for j in range(3, len(chunk), 2):
         if chunk[j][0] == 'Constraint' and chunk[j + 1][0] == 'Constraint Value':
             for i in range(1, num):
                 constraint[i - 1].append([chunk[j][i], chunk[j + 1][i]])
@@ -95,8 +112,6 @@ def parse_case(data):
 def generate_model(s, case, tlm):
     models = []
     constraints = []
-    num = 0
-    dic = []
 
     for c in case:
         if s > len(c[1]):
@@ -111,8 +126,6 @@ def generate_model(s, case, tlm):
         for m in mnemonic:
             l = len(get_status(tlm, m))
             state.append(l)
-            dic.append([m, num])
-            num += l
 
         mdl.append(len(state))
         mdl.append(state)
@@ -123,16 +136,32 @@ def generate_model(s, case, tlm):
         mnemonic = c[1]
         cnst = [c[0]]
 
+        num = 0
+        dic = []
+
+        for m in mnemonic:
+            l = len(get_status(tlm, m))
+            state.append(l)
+            dic.append([m, num])
+            num += l
+
         for i in range(len(c[2])):
             follower = []
 
-            for con in c[2][i]:
-                if len(con[0]) > 0 and len(con[1]) > 0:
-                    idx = get_status(tlm, con[0]).index(con[1])
-                    follower.append(' + ' + str(dic[mnemonic.index(con[0])][1] + idx))
+            con = c[2][i]
+
+            for j in range(len(con)):
+                if len(con[j][0]) > 0 and len(con[j][1]) > 0:
+                    idx = get_value(tlm, con[j][0], con[j][1])
+
+                    if idx >= 0:
+                        if j == 0:
+                            follower.append('- ' + str(dic[mnemonic.index(con[j][0])][1] + idx))
+                        else:
+                            follower.append(' + ' + str(dic[mnemonic.index(con[j][0])][1] + idx))
 
             if len(follower) > 0:
-                cnst.append(['- ' + str(dic[i][1])] + follower)
+                cnst.append(follower)
 
         constraints.append(cnst)
 
