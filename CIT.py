@@ -164,8 +164,6 @@ def smart_crossover(data, a, r1, r2):
     missing = get_missing_tuple(a)
 
     if len(missing) > 0:
-#        hit = [x for x in a if x not in missing]
-
         row1 = random.choice(missing)
         row2 = random.choice(missing)
 
@@ -203,8 +201,7 @@ def local_move(data, op, a):
         elif op[i] == 3:
             # Single Mutation (Smart)
 
-#            ret = smart_mutation(data, a, r1, c)
-            ret = mutation(data, a, r1, c)
+            ret = smart_mutation(data, a, r1, c)
         elif op[i] == 4:
             # Add/Del (Smart)
 
@@ -224,8 +221,7 @@ def local_move(data, op, a):
         elif op[i] == 5:
             # Multiple Mutation (Smart)
 
-            ret = crossover(a, r1, r2)
-#           ret = smart_crossover(data, a, r1, r2)
+            ret = smart_crossover(data, a, r1, r2)
 
     return ret
 
@@ -295,30 +291,12 @@ def fix_cons_violation(a, c):
                         is_restart = True
                         break
 
-    if has_violation:
-        print('out:', has_violation, a)
-
     return has_violation
 
 
 def rl_agent_choose_action(missing):
-    global op_reward
-
-    op = []
-
-    if True:
-        op = [random.randint(0, 5)]
-    else:
-        r = random.randint(0, op_reward.sum() - 1)
-
-        for i in range(len(op_reward)):
-            if r < op_reward[i]:
-                op = [i]
-                break
-            else:
-                r -= op_reward[i]
-
-    return op
+#    return [random.randint(0, 5)]
+    return [random.randint(0, 2)]
 
 
 def rl_agent_set_reward(op, reward):
@@ -352,6 +330,7 @@ def cit(t, data, c, n, max_improvement, temp):
             if not has_violation:
                 break
 
+            op = rl_agent_choose_action(curr_missing)
             a_p = local_move(data, op, a)
 
         new_missing = count_missing_tuple(a_p)
@@ -459,8 +438,8 @@ if __name__ == '__main__':
                         help='Set the target size of the covering array (Default: 10)')
     parser.add_argument('-i', dest='improve', required=False, default=256,
                         help='Set the maximum number of non-improvements (Default: 256)')
-    parser.add_argument('-f', dest='fix_time', required=False, default=10,
-                        help='Set the maximum number of the fix (Default: 10)')
+    parser.add_argument('-f', dest='fix_time', required=False, default=0,
+                        help='Set the maximum number of the fix (Default: 0)')
     parser.add_argument('-t', dest='temperature', required=False, default=0.5,
                         help='Set the initial temperature (Default: 0.5)')
     parser.add_argument('-d', dest='decrement', required=False, default=0.9999,
