@@ -1,0 +1,52 @@
+Mnemonic,Description,TelemetryVerify,StatusValue
+CP2ACQSTART,Payload#2 Start Acquisition,TP2LGWINSUM,ON
+CP2ACQSTOP,Payload#2 Sop Acquisition,TP2LGWINSUM,OFF
+CP2OFF,Payload#2 Power OFF,TP2PS,OFF
+CP2ON,Payload#2 Power ON,TP2PS,ON
+CP2TRDIS,Payload#2 Transaction Disable,TP2TREN,DISA
+CP2TREN,Payload#2 Transaction Enable,TP2TREN,ENAB
+CP1OFF,Payload#1 EU OFF,TP1PS,OFF
+CP1ON,Payload#1 EU ON,TP1PS,ON
+CP1SDREQSTART,Payload#1 Science Data Request START,TP1DATA,ON
+CP1SDREQSTOP,Payload#1 Science Data Request STOP,TP1DATA,OFF
+CP1TRDIS,Payload#1 Transaction Disable,TP1TREN,DISA
+CP1TREN,Payload#1 Transaction Enable,TP1TREN,ENAB
+CP4POFF,Payload#4 P Power OFF,TP4PS,OFF
+CP4PON,Payload#4 P Power ON,TP4PS,ON
+CP4ENTIMGST,Payload#4 Enter Imaging State,TP4STATUS,IMG
+CP4ENTOFFST,Payload#4 Enter Off State,TP4STATUS,OFF
+CP4ENTRDYST,Payload#4 Enter Ready State,TP4STATUS,RDY
+CP4TRDIS,Payload#4 Transaction Disable,TP4TREN,DISA
+CP4TREN,Payload#4 Transaction Enable,TP4TREN,ENAB
+CMPRXP2OFF,Recorder - Payload#2 Rx Off,TMPRXP2ST,Disable
+CMPRXP2ON,Recorder - Payload#2 Rx On,TMPRXP2ST,Enable
+CMPRXP1OFF,Recorder - Payload#1 Rx Off,TMPRXP1ST,Disable
+CMPRXP1ON,Recorder - Payload#1 Rx On,TMPRXP1ST,Enable
+CMPRXP4OFF,Recorder - Payload#4 Rx Off,TMPRXP4ST,Disable
+CMPRXP4ON,Recorder - Payload#4 Rx On,TMPRXP4ST,Enable
+CMPRXP3OFF,Recorder - Payload#3 Rx Off,TMPRXP3ST,Disable
+CMPRXP3ON,Recorder - Payload#3 Rx On,TMPRXP3ST,Enable
+CMPTXDATDIS,Recorder - Data Transmission Disable,TMPTXDATST,Disable
+CMPTXDATEN,Recorder - Data Transmission Enable,TMPTXDATST,Enable
+CMPTXDIS,Recorder - Transmission Disable,TMPTXST,Disable
+CMPTXEN,Recorder - Transmission Enable,TMPTXST,Enable
+CMPTXP01DIS,Recorder - Partition 1 to transmit Disable,TMPTXP01ST,Disable
+CMPTXP01EN,Recorder - Partition 1 to transmit Enable,TMPTXP01ST,Enable
+CMPTXP02DIS,Recorder - Partition 2 to transmit Disable,TMPTXP02ST,Disable
+CMPTXP02EN,Recorder - Partition 2 to transmit Enable,TMPTXP02ST,Enable
+CMPTXP03DIS,Recorder - Partition 3 to transmit Disable,TMPTXP03ST,Disable
+CMPTXP03EN,Recorder - Partition 3 to transmit Enable,TMPTXP03ST,Enable
+CMPTXP04DIS,Recorder - Partition 4 to transmit Disable,TMPTXP04ST,Disable
+CMPTXP04EN,Recorder - Partition 4 to transmit Enable,TMPTXP04ST,Enable
+CMXPOFF,Transmitter-P Power Off,TMXTXPS,OFF
+CMXPON,Transmitter-P Power On,TMXTXPS,ON
+CMXTXPOFF,Transmitter-P Tx OFF,TMXTXPONOFP,OFF
+CMXTXPON,Transmitter-P Tx ON,TMXTXPONOFP,ON
+CP3FPAOFF,Payload#3 FPA off,TP3VALG,OFF
+CP3FPAON,Payload#3 FPA on,TP3VALG,ON
+CP3IMGSTART,Payload#3 Imaging Start,TP3VALO,IMG
+CP3IMGSTOP,Payload#3 Imaging Stop,TP3VALO,RDY
+CP3OFF,Payload#3 Power OFF,TP3PS,OFF
+CP3ON,Payload#3 Power On,TP3PS,ON
+CP3TRDIS,Payload#3 Transaction Disable,TP3TREN,DISA
+CP3TREN,Payload#3 Transaction Enable,TP3TREN,ENAB
