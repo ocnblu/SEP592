@@ -141,7 +141,6 @@ def generate_model(s, case, tlm):
 
         for m in mnemonic:
             l = len(get_status(tlm, m))
-            state.append(l)
             dic.append([m, num])
             num += l
 

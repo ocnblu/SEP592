@@ -277,8 +277,8 @@ if __name__ == '__main__':
     parser.add_argument('case_name', help='Name of test case file to open')
     parser.add_argument('cmd_name', help='Name of telemetry file to open')
     parser.add_argument('tlm_name', help='Name of telemetry file to open')
-    parser.add_argument('-c', dest='testcase', required=False, default=1,
-                        help='Set the test case to generate (Default: 1)')
+    parser.add_argument('-c', dest='testcase', required=True,
+                        help='Set the test case to generate')
     parser.add_argument('-o', dest='output', required=False, default=None,
                         help='Set the name of output file')
     args = parser.parse_args()
