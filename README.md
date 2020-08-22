@@ -9,7 +9,7 @@ Running
 
 1. Generate .citmodel and .constraint
 
-> python Model_Generator.py Test_Case.csv TLM_Example.csv -s 2
+> python Model_Generator.py data/Test_Case.csv data/TLM_Example.csv -s 2
 
 2. Generate .coveringarray
 
@@ -17,6 +17,6 @@ Running
 
 3. Generate test code or procedure
 
-> python Code_Generator.py Power_Check Test_Case.csv CMD_Example.csv TLM_Example.csv -c 1
+> python Code_Generator.py Power_Check data/Test_Case.csv data/CMD_Example.csv data/TLM_Example.csv -c 1
 
-> python Procedure_Generator.py Power_Check Test_Case.csv CMD_Example.csv TLM_Example.csv -c 1
+> python Procedure_Generator.py Power_Check data/Test_Case.csv data/CMD_Example.csv data/TLM_Example.csv -c 1
