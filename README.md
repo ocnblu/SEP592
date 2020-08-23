@@ -1,5 +1,4 @@
-# KAIST 2020 Summer Semester SEP592 Project
-# CIT-based Automatic Test Code and Procedure Generation for Spacecraft
+# KAIST 2020 Summer Semester SEP592 Project <br> CIT-based Automatic Test Code and Procedure Generation for Spacecraft
 
 > The objective of this project is automatically to generate test codes and/or procedures for the spacecraft by the CIT (Combinatorial Interaction Test) tool.
 
