@@ -174,7 +174,7 @@ def generate_code(ca, c, case, cmd, tlm):
     constraint = test[2]
 
     ret.append('PROC_T TEST')
-    ret.append('\t// //*******************************************************************************************')
+    ret.append('\t// //***********************************************************************')
     ret.append('\t// // GENERAL INFO')
     ret.append('\t// //')
     ret.append('\t// // TITLE: ' + title)
@@ -183,25 +183,25 @@ def generate_code(ca, c, case, cmd, tlm):
     ret.append('\t// // LAST MODIFIED DATE:  ' + datetime.today().strftime('%Y-%m-%d'))
     ret.append('\t// // DESCRIPTION: THIS SEQUENCE IS DEFINED FOR ' + title)
     ret.append('\t// //')
-    ret.append('\t// //*******************************************************************************************')
+    ret.append('\t// //***********************************************************************')
     ret.append('\t')
-    ret.append('\t// //*******************************************************************************************')
+    ret.append('\t// //***********************************************************************')
     ret.append('\t// // HISTORY')
     ret.append('\t// //')
     ret.append('\t// // 1. ' + datetime.today().strftime('%Y-%m-%d') + ' INITIAL')
     ret.append('\t// //')
-    ret.append('\t// //*******************************************************************************************')
+    ret.append('\t// //***********************************************************************')
     ret.append('\t')
     ret.append('\tSUB main_sub')
     ret.append('\t\tTLM_WAIT = 32')
     ret.append('\t\t')
     ret.append('\t\tOUTPUT "' + title +' Start: ", DATE$')
     ret.append('\t\t')
-    ret.append('\t\t////////////////////////////////////////////////////////////////////////////////////////////')
+    ret.append('\t\t////////////////////////////////////////////////////////////////////////')
     ret.append('\t\t//')
     ret.append('\t\t// Check default status')
     ret.append('\t\t//')
-    ret.append('\t\t////////////////////////////////////////////////////////////////////////////////////////////')
+    ret.append('\t\t////////////////////////////////////////////////////////////////////////')
     ret.append('\t\t')
 
     for m in mnemonic:
@@ -210,11 +210,11 @@ def generate_code(ca, c, case, cmd, tlm):
     ret.append('\t\t')
 
     for i in range(len(ca)):
-        ret.append('\t\t////////////////////////////////////////////////////////////////////////////////////////////')
+        ret.append('\t\t////////////////////////////////////////////////////////////////////////')
         ret.append('\t\t//')
         ret.append('\t\t// Check Test Case ' + str(i + 1))
         ret.append('\t\t//')
-        ret.append('\t\t////////////////////////////////////////////////////////////////////////////////////////////')
+        ret.append('\t\t////////////////////////////////////////////////////////////////////////')
         ret.append('\t\t')
 
         for j in range(len(mnemonic) - 1, -1, -1):
@@ -224,11 +224,11 @@ def generate_code(ca, c, case, cmd, tlm):
             ret.append('\t\tCHECK ' + mnemonic[j] + ' = "' + get_status(tlm, m)[idx] + '", TIMEOUT = TLM_WAIT')
             ret.append('\t\t')
 
-    ret.append('\t\t////////////////////////////////////////////////////////////////////////////////////////////')
+    ret.append('\t\t////////////////////////////////////////////////////////////////////////')
     ret.append('\t\t//')
     ret.append('\t\t// Check default status')
     ret.append('\t\t//')
-    ret.append('\t\t////////////////////////////////////////////////////////////////////////////////////////////')
+    ret.append('\t\t////////////////////////////////////////////////////////////////////////')
     ret.append('\t\t')
 
     for j in range(len(mnemonic) - 1, -1, -1):
