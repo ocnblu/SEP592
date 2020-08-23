@@ -145,8 +145,6 @@ def generate_model(s, case, tlm):
             num += l
 
         for i in range(len(c[2])):
-            follower = []
-
             con = c[2][i]
 
             for j in range(len(con)):
@@ -159,20 +157,14 @@ def generate_model(s, case, tlm):
                         else:
                             cnst.append([prefix, ' + ' + str(dic[mnemonic.index(con[j][0])][1] + idx)])
 
-#            if len(follower) > 0:
-#                cnst.append(follower)
-
         constraints.append(cnst)
 
     return models, constraints
 
 
-def save_model(prefix, mdl):
+def save_model(mdl):
     for m in mdl:
-        if prefix is None:
-            name = m[0] + '.citmodel'
-        else:
-            name = prefix + m[0] + '.citmodel'
+        name = m[0] + '.citmodel'
 
         f = open(name, 'w+')
 
@@ -185,13 +177,10 @@ def save_model(prefix, mdl):
         f.close()
 
 
-def save_constraint(prefix, cnst):
+def save_constraint(cnst):
     for c in cnst:
         if len(c) > 1:
-            if prefix is None:
-                name = c[0] + '.constraints'
-            else:
-                name = prefix + c[0] + '.constraints'
+            name = c[0] + '.constraints'
 
             f = open(name, 'w+')
 
@@ -212,9 +201,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Generate the model for the covering array.')
     parser.add_argument('case_name', help='Name of test case file to open')
     parser.add_argument('telemetry_name', help='Name of telemetry file to open')
-    parser.add_argument('-s', dest='strength', required=True, default=2,
+    parser.add_argument('-s', dest='strength', required=False, default=2,
                         help='Set the strength of the covering array (Default: 2)')
-    parser.add_argument('-o', dest='prefix', help='Prefix of output file')
     args = parser.parse_args()
 
     s = int(args.strength)
@@ -224,5 +212,5 @@ if __name__ == '__main__':
 
     model, constraints = generate_model(s, case, tlm)
 
-    save_model(args.prefix, model)
-    save_constraint(args.prefix, constraints)
+    save_model(model)
+    save_constraint(constraints)

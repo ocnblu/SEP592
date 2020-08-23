@@ -192,6 +192,7 @@ def smart_mutation(data, a, r, c):
                 l.remove(a[i][c])
 
                 a[i][c] = random.choice(l)
+                break
 
     return a
 
@@ -222,25 +223,20 @@ def local_move(data, op, a):
 
         if op[i] == 0:
             # Single Mutation (Std)
-
             ret = mutation(data, ret, r1, c)
         elif op[i] == 1:
-            # Add/Del (Std)
-
+            # Random Add/Del (Std)
             del ret[r1]
 
             ret.append(gen_row(data))
         elif op[i] == 2:
             # Multiple Mutation (Std)
-
             ret = crossover(ret, r1, r2)
         elif op[i] == 3:
             # Single Mutation (Smart)
-
             ret = smart_mutation(data, a, r1, c)
         elif op[i] == 4:
-            # Add/Del (Smart)
-
+            # Random Add/Del (Smart)
             missing = get_missing_tuple(a)
 
             if len(missing) > 0:
@@ -256,7 +252,6 @@ def local_move(data, op, a):
             ret.append(gen_row(data))
         elif op[i] == 5:
             # Multiple Mutation (Smart)
-
             ret = smart_crossover(data, a, r1, r2)
 
     return ret
@@ -294,6 +289,8 @@ def fix_cons_violation(a, c):
     for row in a:
         fix_time = 0
         is_restart = True
+
+        s1 = set(row)
 
         while is_restart:
             is_restart = False
@@ -360,7 +357,7 @@ def cit(t, data, c, n, max_improvement, temp):
         op = rl_agent_choose_action(curr_missing)
         a_p = local_move(data, op, a)
 
-        while True:
+        while max_fix_time > 0:
             has_violation = fix_cons_violation(a_p, c)
 
             if not has_violation:
@@ -501,11 +498,6 @@ if __name__ == '__main__':
 
     t, data = open_data_file(filename)
     constraint = open_const_file(constraint_filename)
-
-    max_data = 0
-
-    for d in data:
-        max_data = max(max_data, max(d))
 
     print('Strength of the array:   ', t)
     print()
