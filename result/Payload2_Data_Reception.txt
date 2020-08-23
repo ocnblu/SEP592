@@ -68,10 +68,10 @@
 	  - Expected: ON
 	  - Observed: ______________________________
 
-15. Send CP2TREN.                                                      [       ]
+15. Send CP2TRDIS.                                                     [       ]
 
 16. Check TP2TREN.                                                     [       ]
-	  - Expected: ENAB
+	  - Expected: DISA
 	  - Observed: ______________________________
 
 17. Send CMPRXP2OFF.                                                   [       ]
@@ -96,16 +96,16 @@
 	  - Expected: ON
 	  - Observed: ______________________________
 
-23. Send CP2TRDIS.                                                     [       ]
+23. Send CP2TREN.                                                      [       ]
 
 24. Check TP2TREN.                                                     [       ]
-	  - Expected: DISA
+	  - Expected: ENAB
 	  - Observed: ______________________________
 
-25. Send CMPRXP2ON.                                                    [       ]
+25. Send CMPRXP2OFF.                                                   [       ]
 
 26. Check TMPRXP2ST.                                                   [       ]
-	  - Expected: Enable
+	  - Expected: Disable
 	  - Observed: ______________________________
 
 27. Send CP2ACQSTOP.                                                   [       ]
@@ -136,9 +136,37 @@
 	  - Expected: Enable
 	  - Observed: ______________________________
 
-35. Send CP2ACQSTART.                                                  [       ]
+35. Send CP2ACQSTOP.                                                   [       ]
 
 36. Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 5
+--------------------------------------------------------------------------------
+
+37. Send CP2ON.                                                        [       ]
+
+38. Check TP2PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+39. Send CP2TREN.                                                      [       ]
+
+40. Check TP2TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+41. Send CMPRXP2ON.                                                    [       ]
+
+42. Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+43. Send CP2ACQSTART.                                                  [       ]
+
+44. Check TP2LGWINSUM.                                                 [       ]
 	  - Expected: ON
 	  - Observed: ______________________________
 
@@ -146,27 +174,27 @@
  * Check default status
 --------------------------------------------------------------------------------
 
-37. Send CP2OFF.                                                       [       ]
+45. Send CP2OFF.                                                       [       ]
 
-38. Send CP2TRDIS.                                                     [       ]
+46. Send CP2TRDIS.                                                     [       ]
 
-39. Send CMPRXP2OFF.                                                   [       ]
+47. Send CMPRXP2OFF.                                                   [       ]
 
-40. Send CP2ACQSTOP.                                                   [       ]
+48. Send CP2ACQSTOP.                                                   [       ]
 
-41. Check TP2LGWINSUM.                                                 [       ]
+49. Check TP2LGWINSUM.                                                 [       ]
 	  - Expected: OFF
 	  - Observed: ______________________________
 
-42. Check TMPRXP2ST.                                                   [       ]
+50. Check TMPRXP2ST.                                                   [       ]
 	  - Expected: Disable
 	  - Observed: ______________________________
 
-43. Check TP2TREN.                                                     [       ]
+51. Check TP2TREN.                                                     [       ]
 	  - Expected: DISA
 	  - Observed: ______________________________
 
-44. Check TP2PS.                                                       [       ]
+52. Check TP2PS.                                                       [       ]
 	  - Expected: OFF
 	  - Observed: ______________________________
 

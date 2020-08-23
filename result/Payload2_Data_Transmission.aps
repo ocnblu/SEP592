@@ -1,5 +1,5 @@
 PROC_T TEST
-	// //*******************************************************************************************
+	// //***********************************************************************
 	// // GENERAL INFO
 	// //
 	// // TITLE: Payload2_Data_Transmission
@@ -8,25 +8,25 @@ PROC_T TEST
 	// // LAST MODIFIED DATE:  2020-08-23
 	// // DESCRIPTION: THIS SEQUENCE IS DEFINED FOR Payload2_Data_Transmission
 	// //
-	// //*******************************************************************************************
+	// //***********************************************************************
 	
-	// //*******************************************************************************************
+	// //***********************************************************************
 	// // HISTORY
 	// //
 	// // 1. 2020-08-23 INITIAL
 	// //
-	// //*******************************************************************************************
+	// //***********************************************************************
 	
 	SUB main_sub
 		TLM_WAIT = 32
 		
 		OUTPUT "Payload2_Data_Transmission Start: ", DATE$
 		
-		////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 		//
 		// Check default status
 		//
-		////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 		
 		CHECK TMPTXDATST = "Disable", TIMEOUT = TLM_WAIT
 		CHECK TMPTXST = "Disable", TIMEOUT = TLM_WAIT
@@ -38,17 +38,17 @@ PROC_T TEST
 		CHECK TP2TREN = "DISA", TIMEOUT = TLM_WAIT
 		CHECK TP2PS = "OFF", TIMEOUT = TLM_WAIT
 		
-		////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 		//
 		// Check Test Case 1
 		//
-		////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 		
-		SEND CP2OFF END SEND
-		CHECK TP2PS = "OFF", TIMEOUT = TLM_WAIT
+		SEND CP2ON END SEND
+		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
 		
-		SEND CP2TRDIS END SEND
-		CHECK TP2TREN = "DISA", TIMEOUT = TLM_WAIT
+		SEND CP2TREN END SEND
+		CHECK TP2TREN = "ENAB", TIMEOUT = TLM_WAIT
 		
 		SEND CMPRXP2ON END SEND
 		CHECK TMPRXP2ST = "Enable", TIMEOUT = TLM_WAIT
@@ -71,20 +71,20 @@ PROC_T TEST
 		SEND CMPTXDATDIS END SEND
 		CHECK TMPTXDATST = "Disable", TIMEOUT = TLM_WAIT
 		
-		////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 		//
 		// Check Test Case 2
 		//
-		////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 		
-		SEND CP2ON END SEND
-		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
+		SEND CP2OFF END SEND
+		CHECK TP2PS = "OFF", TIMEOUT = TLM_WAIT
 		
-		SEND CP2TREN END SEND
-		CHECK TP2TREN = "ENAB", TIMEOUT = TLM_WAIT
+		SEND CP2TRDIS END SEND
+		CHECK TP2TREN = "DISA", TIMEOUT = TLM_WAIT
 		
-		SEND CMPRXP2ON END SEND
-		CHECK TMPRXP2ST = "Enable", TIMEOUT = TLM_WAIT
+		SEND CMPRXP2OFF END SEND
+		CHECK TMPRXP2ST = "Disable", TIMEOUT = TLM_WAIT
 		
 		SEND CP2ACQSTOP END SEND
 		CHECK TP2LGWINSUM = "OFF", TIMEOUT = TLM_WAIT
@@ -92,8 +92,8 @@ PROC_T TEST
 		SEND CMPTXP02DIS END SEND
 		CHECK TMPTXP02ST = "Disable", TIMEOUT = TLM_WAIT
 		
-		SEND CMXPON END SEND
-		CHECK TMXTXPS = "ON", TIMEOUT = TLM_WAIT
+		SEND CMXPOFF END SEND
+		CHECK TMXTXPS = "OFF", TIMEOUT = TLM_WAIT
 		
 		SEND CMXTXPOFF END SEND
 		CHECK TMXTXPONOFP = "OFF", TIMEOUT = TLM_WAIT
@@ -104,44 +104,11 @@ PROC_T TEST
 		SEND CMPTXDATDIS END SEND
 		CHECK TMPTXDATST = "Disable", TIMEOUT = TLM_WAIT
 		
-		////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 		//
 		// Check Test Case 3
 		//
-		////////////////////////////////////////////////////////////////////////////////////////////
-		
-		SEND CP2OFF END SEND
-		CHECK TP2PS = "OFF", TIMEOUT = TLM_WAIT
-		
-		SEND CP2TREN END SEND
-		CHECK TP2TREN = "ENAB", TIMEOUT = TLM_WAIT
-		
-		SEND CMPRXP2OFF END SEND
-		CHECK TMPRXP2ST = "Disable", TIMEOUT = TLM_WAIT
-		
-		SEND CP2ACQSTART END SEND
-		CHECK TP2LGWINSUM = "ON", TIMEOUT = TLM_WAIT
-		
-		SEND CMPTXP02EN END SEND
-		CHECK TMPTXP02ST = "Enable", TIMEOUT = TLM_WAIT
-		
-		SEND CMXPOFF END SEND
-		CHECK TMXTXPS = "OFF", TIMEOUT = TLM_WAIT
-		
-		SEND CMXTXPOFF END SEND
-		CHECK TMXTXPONOFP = "OFF", TIMEOUT = TLM_WAIT
-		
-		SEND CMPTXEN END SEND
-		CHECK TMPTXST = "Enable", TIMEOUT = TLM_WAIT
-		
-		SEND CMPTXDATDIS END SEND
-		CHECK TMPTXDATST = "Disable", TIMEOUT = TLM_WAIT
-		
-		////////////////////////////////////////////////////////////////////////////////////////////
-		//
-		// Check Test Case 4
-		//
-		////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 		
 		SEND CP2ON END SEND
 		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
@@ -155,8 +122,8 @@ PROC_T TEST
 		SEND CP2ACQSTOP END SEND
 		CHECK TP2LGWINSUM = "OFF", TIMEOUT = TLM_WAIT
 		
-		SEND CMPTXP02EN END SEND
-		CHECK TMPTXP02ST = "Enable", TIMEOUT = TLM_WAIT
+		SEND CMPTXP02DIS END SEND
+		CHECK TMPTXP02ST = "Disable", TIMEOUT = TLM_WAIT
 		
 		SEND CMXPOFF END SEND
 		CHECK TMXTXPS = "OFF", TIMEOUT = TLM_WAIT
@@ -167,17 +134,50 @@ PROC_T TEST
 		SEND CMPTXDIS END SEND
 		CHECK TMPTXST = "Disable", TIMEOUT = TLM_WAIT
 		
-		SEND CMPTXDATEN END SEND
-		CHECK TMPTXDATST = "Enable", TIMEOUT = TLM_WAIT
+		SEND CMPTXDATDIS END SEND
+		CHECK TMPTXDATST = "Disable", TIMEOUT = TLM_WAIT
 		
-		////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 4
+		//
+		////////////////////////////////////////////////////////////////////////
+		
+		SEND CP2ON END SEND
+		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP2TREN END SEND
+		CHECK TP2TREN = "ENAB", TIMEOUT = TLM_WAIT
+		
+		SEND CMPRXP2OFF END SEND
+		CHECK TMPRXP2ST = "Disable", TIMEOUT = TLM_WAIT
+		
+		SEND CP2ACQSTOP END SEND
+		CHECK TP2LGWINSUM = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CMPTXP02DIS END SEND
+		CHECK TMPTXP02ST = "Disable", TIMEOUT = TLM_WAIT
+		
+		SEND CMXPOFF END SEND
+		CHECK TMXTXPS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CMXTXPOFF END SEND
+		CHECK TMXTXPONOFP = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CMPTXDIS END SEND
+		CHECK TMPTXST = "Disable", TIMEOUT = TLM_WAIT
+		
+		SEND CMPTXDATDIS END SEND
+		CHECK TMPTXDATST = "Disable", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////
 		//
 		// Check Test Case 5
 		//
-		////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 		
-		SEND CP2OFF END SEND
-		CHECK TP2PS = "OFF", TIMEOUT = TLM_WAIT
+		SEND CP2ON END SEND
+		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
 		
 		SEND CP2TREN END SEND
 		CHECK TP2TREN = "ENAB", TIMEOUT = TLM_WAIT
@@ -194,35 +194,167 @@ PROC_T TEST
 		SEND CMXPOFF END SEND
 		CHECK TMXTXPS = "OFF", TIMEOUT = TLM_WAIT
 		
-		SEND CMXTXPON END SEND
-		CHECK TMXTXPONOFP = "ON", TIMEOUT = TLM_WAIT
+		SEND CMXTXPOFF END SEND
+		CHECK TMXTXPONOFP = "OFF", TIMEOUT = TLM_WAIT
 		
-		SEND CMPTXEN END SEND
-		CHECK TMPTXST = "Enable", TIMEOUT = TLM_WAIT
+		SEND CMPTXDIS END SEND
+		CHECK TMPTXST = "Disable", TIMEOUT = TLM_WAIT
 		
-		SEND CMPTXDATEN END SEND
-		CHECK TMPTXDATST = "Enable", TIMEOUT = TLM_WAIT
+		SEND CMPTXDATDIS END SEND
+		CHECK TMPTXDATST = "Disable", TIMEOUT = TLM_WAIT
 		
-		////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 		//
 		// Check Test Case 6
 		//
-		////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 		
 		SEND CP2ON END SEND
 		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
 		
-		SEND CP2TRDIS END SEND
-		CHECK TP2TREN = "DISA", TIMEOUT = TLM_WAIT
+		SEND CP2TREN END SEND
+		CHECK TP2TREN = "ENAB", TIMEOUT = TLM_WAIT
 		
-		SEND CMPRXP2OFF END SEND
-		CHECK TMPRXP2ST = "Disable", TIMEOUT = TLM_WAIT
+		SEND CMPRXP2ON END SEND
+		CHECK TMPRXP2ST = "Enable", TIMEOUT = TLM_WAIT
 		
 		SEND CP2ACQSTART END SEND
 		CHECK TP2LGWINSUM = "ON", TIMEOUT = TLM_WAIT
 		
 		SEND CMPTXP02DIS END SEND
 		CHECK TMPTXP02ST = "Disable", TIMEOUT = TLM_WAIT
+		
+		SEND CMXPOFF END SEND
+		CHECK TMXTXPS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CMXTXPOFF END SEND
+		CHECK TMXTXPONOFP = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CMPTXDIS END SEND
+		CHECK TMPTXST = "Disable", TIMEOUT = TLM_WAIT
+		
+		SEND CMPTXDATDIS END SEND
+		CHECK TMPTXDATST = "Disable", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 7
+		//
+		////////////////////////////////////////////////////////////////////////
+		
+		SEND CP2ON END SEND
+		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP2TREN END SEND
+		CHECK TP2TREN = "ENAB", TIMEOUT = TLM_WAIT
+		
+		SEND CMPRXP2ON END SEND
+		CHECK TMPRXP2ST = "Enable", TIMEOUT = TLM_WAIT
+		
+		SEND CP2ACQSTART END SEND
+		CHECK TP2LGWINSUM = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CMPTXP02EN END SEND
+		CHECK TMPTXP02ST = "Enable", TIMEOUT = TLM_WAIT
+		
+		SEND CMXPOFF END SEND
+		CHECK TMXTXPS = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CMXTXPOFF END SEND
+		CHECK TMXTXPONOFP = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CMPTXDIS END SEND
+		CHECK TMPTXST = "Disable", TIMEOUT = TLM_WAIT
+		
+		SEND CMPTXDATDIS END SEND
+		CHECK TMPTXDATST = "Disable", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 8
+		//
+		////////////////////////////////////////////////////////////////////////
+		
+		SEND CP2ON END SEND
+		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP2TREN END SEND
+		CHECK TP2TREN = "ENAB", TIMEOUT = TLM_WAIT
+		
+		SEND CMPRXP2ON END SEND
+		CHECK TMPRXP2ST = "Enable", TIMEOUT = TLM_WAIT
+		
+		SEND CP2ACQSTART END SEND
+		CHECK TP2LGWINSUM = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CMPTXP02EN END SEND
+		CHECK TMPTXP02ST = "Enable", TIMEOUT = TLM_WAIT
+		
+		SEND CMXPON END SEND
+		CHECK TMXTXPS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CMXTXPOFF END SEND
+		CHECK TMXTXPONOFP = "OFF", TIMEOUT = TLM_WAIT
+		
+		SEND CMPTXDIS END SEND
+		CHECK TMPTXST = "Disable", TIMEOUT = TLM_WAIT
+		
+		SEND CMPTXDATDIS END SEND
+		CHECK TMPTXDATST = "Disable", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 9
+		//
+		////////////////////////////////////////////////////////////////////////
+		
+		SEND CP2ON END SEND
+		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP2TREN END SEND
+		CHECK TP2TREN = "ENAB", TIMEOUT = TLM_WAIT
+		
+		SEND CMPRXP2ON END SEND
+		CHECK TMPRXP2ST = "Enable", TIMEOUT = TLM_WAIT
+		
+		SEND CP2ACQSTART END SEND
+		CHECK TP2LGWINSUM = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CMPTXP02EN END SEND
+		CHECK TMPTXP02ST = "Enable", TIMEOUT = TLM_WAIT
+		
+		SEND CMXPON END SEND
+		CHECK TMXTXPS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CMXTXPON END SEND
+		CHECK TMXTXPONOFP = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CMPTXEN END SEND
+		CHECK TMPTXST = "Enable", TIMEOUT = TLM_WAIT
+		
+		SEND CMPTXDATDIS END SEND
+		CHECK TMPTXDATST = "Disable", TIMEOUT = TLM_WAIT
+		
+		////////////////////////////////////////////////////////////////////////
+		//
+		// Check Test Case 10
+		//
+		////////////////////////////////////////////////////////////////////////
+		
+		SEND CP2ON END SEND
+		CHECK TP2PS = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CP2TREN END SEND
+		CHECK TP2TREN = "ENAB", TIMEOUT = TLM_WAIT
+		
+		SEND CMPRXP2ON END SEND
+		CHECK TMPRXP2ST = "Enable", TIMEOUT = TLM_WAIT
+		
+		SEND CP2ACQSTART END SEND
+		CHECK TP2LGWINSUM = "ON", TIMEOUT = TLM_WAIT
+		
+		SEND CMPTXP02EN END SEND
+		CHECK TMPTXP02ST = "Enable", TIMEOUT = TLM_WAIT
 		
 		SEND CMXPON END SEND
 		CHECK TMXTXPS = "ON", TIMEOUT = TLM_WAIT
@@ -236,11 +368,11 @@ PROC_T TEST
 		SEND CMPTXDATEN END SEND
 		CHECK TMPTXDATST = "Enable", TIMEOUT = TLM_WAIT
 		
-		////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 		//
 		// Check default status
 		//
-		////////////////////////////////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////////////
 		
 		SEND CP2OFF END SEND
 		SEND CP2TRDIS END SEND

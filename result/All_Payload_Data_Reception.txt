@@ -86,46 +86,46 @@
  * Check Test Case 1
 --------------------------------------------------------------------------------
 
-18. Send CP4POFF.                                                      [       ]
+18. Send CP4PON.                                                       [       ]
 
 19. Check TP4PS.                                                       [       ]
-	  - Expected: OFF
-	  - Observed: ______________________________
-
-20. Send CP4TRDIS.                                                     [       ]
-
-21. Check TP4TREN.                                                     [       ]
-	  - Expected: DISA
-	  - Observed: ______________________________
-
-22. Send CMPRXP4OFF.                                                   [       ]
-
-23. Check TMPRXP4ST.                                                   [       ]
-	  - Expected: Disable
-	  - Observed: ______________________________
-
-24. Send CP4ENTOFFST.                                                  [       ]
-
-25. Check TP4STATUS.                                                   [       ]
-	  - Expected: OFF
-	  - Observed: ______________________________
-
-26. Send CP3ON.                                                        [       ]
-
-27. Check TP3PS.                                                       [       ]
 	  - Expected: ON
 	  - Observed: ______________________________
 
-28. Send CP3TREN.                                                      [       ]
+20. Send CP4TREN.                                                      [       ]
 
-29. Check TP3TREN.                                                     [       ]
+21. Check TP4TREN.                                                     [       ]
 	  - Expected: ENAB
 	  - Observed: ______________________________
 
-30. Send CMPRXP3ON.                                                    [       ]
+22. Send CMPRXP4ON.                                                    [       ]
+
+23. Check TMPRXP4ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+24. Send CP4ENTIMGST.                                                  [       ]
+
+25. Check TP4STATUS.                                                   [       ]
+	  - Expected: IMG
+	  - Observed: ______________________________
+
+26. Send CP3OFF.                                                       [       ]
+
+27. Check TP3PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+28. Send CP3TRDIS.                                                     [       ]
+
+29. Check TP3TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+30. Send CMPRXP3OFF.                                                   [       ]
 
 31. Check TMPRXP3ST.                                                   [       ]
-	  - Expected: Enable
+	  - Expected: Disable
 	  - Observed: ______________________________
 
 32. Send CP3FPAOFF.                                                    [       ]
@@ -140,10 +140,10 @@
 	  - Expected: RDY
 	  - Observed: ______________________________
 
-36. Send CP2ON.                                                        [       ]
+36. Send CP2OFF.                                                       [       ]
 
 37. Check TP2PS.                                                       [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
 38. Send CP2TRDIS.                                                     [       ]
@@ -192,16 +192,16 @@
  * Check Test Case 2
 --------------------------------------------------------------------------------
 
-52. Send CP4POFF.                                                      [       ]
+52. Send CP4PON.                                                       [       ]
 
 53. Check TP4PS.                                                       [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
-54. Send CP4TRDIS.                                                     [       ]
+54. Send CP4TREN.                                                      [       ]
 
 55. Check TP4TREN.                                                     [       ]
-	  - Expected: DISA
+	  - Expected: ENAB
 	  - Observed: ______________________________
 
 56. Send CMPRXP4OFF.                                                   [       ]
@@ -210,16 +210,16 @@
 	  - Expected: Disable
 	  - Observed: ______________________________
 
-58. Send CP4ENTRDYST.                                                  [       ]
+58. Send CP4ENTOFFST.                                                  [       ]
 
 59. Check TP4STATUS.                                                   [       ]
-	  - Expected: RDY
+	  - Expected: OFF
 	  - Observed: ______________________________
 
-60. Send CP3OFF.                                                       [       ]
+60. Send CP3ON.                                                        [       ]
 
 61. Check TP3PS.                                                       [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
 62. Send CP3TRDIS.                                                     [       ]
@@ -240,10 +240,10 @@
 	  - Expected: OFF
 	  - Observed: ______________________________
 
-68. Send CP3IMGSTART.                                                  [       ]
+68. Send CP3IMGSTOP.                                                   [       ]
 
 69. Check TP3VALO.                                                     [       ]
-	  - Expected: IMG
+	  - Expected: RDY
 	  - Observed: ______________________________
 
 70. Send CP2ON.                                                        [       ]
@@ -252,10 +252,10 @@
 	  - Expected: ON
 	  - Observed: ______________________________
 
-72. Send CP2TREN.                                                      [       ]
+72. Send CP2TRDIS.                                                     [       ]
 
 73. Check TP2TREN.                                                     [       ]
-	  - Expected: ENAB
+	  - Expected: DISA
 	  - Observed: ______________________________
 
 74. Send CMPRXP2OFF.                                                   [       ]
@@ -270,16 +270,16 @@
 	  - Expected: OFF
 	  - Observed: ______________________________
 
-78. Send CP1ON.                                                        [       ]
+78. Send CP1OFF.                                                       [       ]
 
 79. Check TP1PS.                                                       [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
-80. Send CP1TREN.                                                      [       ]
+80. Send CP1TRDIS.                                                     [       ]
 
 81. Check TP1TREN.                                                     [       ]
-	  - Expected: ENAB
+	  - Expected: DISA
 	  - Observed: ______________________________
 
 82. Send CMPRXP1OFF.                                                   [       ]
@@ -298,16 +298,16 @@
  * Check Test Case 3
 --------------------------------------------------------------------------------
 
-86. Send CP4PON.                                                       [       ]
+86. Send CP4POFF.                                                      [       ]
 
 87. Check TP4PS.                                                       [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
-88. Send CP4TREN.                                                      [       ]
+88. Send CP4TRDIS.                                                     [       ]
 
 89. Check TP4TREN.                                                     [       ]
-	  - Expected: ENAB
+	  - Expected: DISA
 	  - Observed: ______________________________
 
 90. Send CMPRXP4OFF.                                                   [       ]
@@ -316,16 +316,16 @@
 	  - Expected: Disable
 	  - Observed: ______________________________
 
-92. Send CP4ENTIMGST.                                                  [       ]
+92. Send CP4ENTRDYST.                                                  [       ]
 
 93. Check TP4STATUS.                                                   [       ]
-	  - Expected: IMG
+	  - Expected: RDY
 	  - Observed: ______________________________
 
-94. Send CP3OFF.                                                       [       ]
+94. Send CP3ON.                                                        [       ]
 
 95. Check TP3PS.                                                       [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
 96. Send CP3TREN.                                                      [       ]
@@ -334,10 +334,10 @@
 	  - Expected: ENAB
 	  - Observed: ______________________________
 
-98. Send CMPRXP3OFF.                                                   [       ]
+98. Send CMPRXP3ON.                                                    [       ]
 
 99. Check TMPRXP3ST.                                                   [       ]
-	  - Expected: Disable
+	  - Expected: Enable
 	  - Observed: ______________________________
 
 100.Send CP3FPAON.                                                     [       ]
@@ -370,10 +370,10 @@
 	  - Expected: Enable
 	  - Observed: ______________________________
 
-110.Send CP2ACQSTOP.                                                   [       ]
+110.Send CP2ACQSTART.                                                  [       ]
 
 111.Check TP2LGWINSUM.                                                 [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
 112.Send CP1OFF.                                                       [       ]
@@ -388,10 +388,10 @@
 	  - Expected: DISA
 	  - Observed: ______________________________
 
-116.Send CMPRXP1ON.                                                    [       ]
+116.Send CMPRXP1OFF.                                                   [       ]
 
 117.Check TMPRXP1ST.                                                   [       ]
-	  - Expected: Enable
+	  - Expected: Disable
 	  - Observed: ______________________________
 
 118.Send CP1SDREQSTOP.                                                 [       ]
@@ -404,10 +404,10 @@
  * Check Test Case 4
 --------------------------------------------------------------------------------
 
-120.Send CP4POFF.                                                      [       ]
+120.Send CP4PON.                                                       [       ]
 
 121.Check TP4PS.                                                       [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
 122.Send CP4TREN.                                                      [       ]
@@ -422,10 +422,10 @@
 	  - Expected: Enable
 	  - Observed: ______________________________
 
-126.Send CP4ENTRDYST.                                                  [       ]
+126.Send CP4ENTOFFST.                                                  [       ]
 
 127.Check TP4STATUS.                                                   [       ]
-	  - Expected: RDY
+	  - Expected: OFF
 	  - Observed: ______________________________
 
 128.Send CP3ON.                                                        [       ]
@@ -452,10 +452,10 @@
 	  - Expected: ON
 	  - Observed: ______________________________
 
-136.Send CP3IMGSTART.                                                  [       ]
+136.Send CP3IMGSTOP.                                                   [       ]
 
 137.Check TP3VALO.                                                     [       ]
-	  - Expected: IMG
+	  - Expected: RDY
 	  - Observed: ______________________________
 
 138.Send CP2OFF.                                                       [       ]
@@ -464,10 +464,10 @@
 	  - Expected: OFF
 	  - Observed: ______________________________
 
-140.Send CP2TREN.                                                      [       ]
+140.Send CP2TRDIS.                                                     [       ]
 
 141.Check TP2TREN.                                                     [       ]
-	  - Expected: ENAB
+	  - Expected: DISA
 	  - Observed: ______________________________
 
 142.Send CMPRXP2OFF.                                                   [       ]
@@ -476,10 +476,10 @@
 	  - Expected: Disable
 	  - Observed: ______________________________
 
-144.Send CP2ACQSTART.                                                  [       ]
+144.Send CP2ACQSTOP.                                                   [       ]
 
 145.Check TP2LGWINSUM.                                                 [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
 146.Send CP1ON.                                                        [       ]
@@ -494,10 +494,10 @@
 	  - Expected: DISA
 	  - Observed: ______________________________
 
-150.Send CMPRXP1ON.                                                    [       ]
+150.Send CMPRXP1OFF.                                                   [       ]
 
 151.Check TMPRXP1ST.                                                   [       ]
-	  - Expected: Enable
+	  - Expected: Disable
 	  - Observed: ______________________________
 
 152.Send CP1SDREQSTOP.                                                 [       ]
@@ -540,16 +540,16 @@
 	  - Expected: ON
 	  - Observed: ______________________________
 
-164.Send CP3TRDIS.                                                     [       ]
+164.Send CP3TREN.                                                      [       ]
 
 165.Check TP3TREN.                                                     [       ]
-	  - Expected: DISA
+	  - Expected: ENAB
 	  - Observed: ______________________________
 
-166.Send CMPRXP3OFF.                                                   [       ]
+166.Send CMPRXP3ON.                                                    [       ]
 
 167.Check TMPRXP3ST.                                                   [       ]
-	  - Expected: Disable
+	  - Expected: Enable
 	  - Observed: ______________________________
 
 168.Send CP3FPAON.                                                     [       ]
@@ -576,22 +576,22 @@
 	  - Expected: DISA
 	  - Observed: ______________________________
 
-176.Send CMPRXP2ON.                                                    [       ]
+176.Send CMPRXP2OFF.                                                   [       ]
 
 177.Check TMPRXP2ST.                                                   [       ]
-	  - Expected: Enable
+	  - Expected: Disable
 	  - Observed: ______________________________
 
-178.Send CP2ACQSTART.                                                  [       ]
+178.Send CP2ACQSTOP.                                                   [       ]
 
 179.Check TP2LGWINSUM.                                                 [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
-180.Send CP1OFF.                                                       [       ]
+180.Send CP1ON.                                                        [       ]
 
 181.Check TP1PS.                                                       [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
 182.Send CP1TREN.                                                      [       ]
@@ -606,10 +606,10 @@
 	  - Expected: Disable
 	  - Observed: ______________________________
 
-186.Send CP1SDREQSTART.                                                [       ]
+186.Send CP1SDREQSTOP.                                                 [       ]
 
 187.Check TP1DATA.                                                     [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
 --------------------------------------------------------------------------------
@@ -634,10 +634,10 @@
 	  - Expected: Enable
 	  - Observed: ______________________________
 
-194.Send CP4ENTIMGST.                                                  [       ]
+194.Send CP4ENTRDYST.                                                  [       ]
 
 195.Check TP4STATUS.                                                   [       ]
-	  - Expected: IMG
+	  - Expected: RDY
 	  - Observed: ______________________________
 
 196.Send CP3ON.                                                        [       ]
@@ -646,16 +646,16 @@
 	  - Expected: ON
 	  - Observed: ______________________________
 
-198.Send CP3TRDIS.                                                     [       ]
+198.Send CP3TREN.                                                      [       ]
 
 199.Check TP3TREN.                                                     [       ]
-	  - Expected: DISA
+	  - Expected: ENAB
 	  - Observed: ______________________________
 
-200.Send CMPRXP3ON.                                                    [       ]
+200.Send CMPRXP3OFF.                                                   [       ]
 
 201.Check TMPRXP3ST.                                                   [       ]
-	  - Expected: Enable
+	  - Expected: Disable
 	  - Observed: ______________________________
 
 202.Send CP3FPAOFF.                                                    [       ]
@@ -670,16 +670,16 @@
 	  - Expected: RDY
 	  - Observed: ______________________________
 
-206.Send CP2OFF.                                                       [       ]
+206.Send CP2ON.                                                        [       ]
 
 207.Check TP2PS.                                                       [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
-208.Send CP2TRDIS.                                                     [       ]
+208.Send CP2TREN.                                                      [       ]
 
 209.Check TP2TREN.                                                     [       ]
-	  - Expected: DISA
+	  - Expected: ENAB
 	  - Observed: ______________________________
 
 210.Send CMPRXP2OFF.                                                   [       ]
@@ -688,10 +688,10 @@
 	  - Expected: Disable
 	  - Observed: ______________________________
 
-212.Send CP2ACQSTART.                                                  [       ]
+212.Send CP2ACQSTOP.                                                   [       ]
 
 213.Check TP2LGWINSUM.                                                 [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
 214.Send CP1ON.                                                        [       ]
@@ -706,16 +706,16 @@
 	  - Expected: ENAB
 	  - Observed: ______________________________
 
-218.Send CMPRXP1OFF.                                                   [       ]
+218.Send CMPRXP1ON.                                                    [       ]
 
 219.Check TMPRXP1ST.                                                   [       ]
-	  - Expected: Disable
+	  - Expected: Enable
 	  - Observed: ______________________________
 
-220.Send CP1SDREQSTART.                                                [       ]
+220.Send CP1SDREQSTOP.                                                 [       ]
 
 221.Check TP1DATA.                                                     [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
 --------------------------------------------------------------------------------
@@ -728,16 +728,16 @@
 	  - Expected: ON
 	  - Observed: ______________________________
 
-224.Send CP4TRDIS.                                                     [       ]
+224.Send CP4TREN.                                                      [       ]
 
 225.Check TP4TREN.                                                     [       ]
-	  - Expected: DISA
+	  - Expected: ENAB
 	  - Observed: ______________________________
 
-226.Send CMPRXP4ON.                                                    [       ]
+226.Send CMPRXP4OFF.                                                   [       ]
 
 227.Check TMPRXP4ST.                                                   [       ]
-	  - Expected: Enable
+	  - Expected: Disable
 	  - Observed: ______________________________
 
 228.Send CP4ENTRDYST.                                                  [       ]
@@ -758,16 +758,16 @@
 	  - Expected: DISA
 	  - Observed: ______________________________
 
-234.Send CMPRXP3ON.                                                    [       ]
+234.Send CMPRXP3OFF.                                                   [       ]
 
 235.Check TMPRXP3ST.                                                   [       ]
-	  - Expected: Enable
+	  - Expected: Disable
 	  - Observed: ______________________________
 
-236.Send CP3FPAON.                                                     [       ]
+236.Send CP3FPAOFF.                                                    [       ]
 
 237.Check TP3VALG.                                                     [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
 238.Send CP3IMGSTOP.                                                   [       ]
@@ -776,16 +776,16 @@
 	  - Expected: RDY
 	  - Observed: ______________________________
 
-240.Send CP2OFF.                                                       [       ]
+240.Send CP2ON.                                                        [       ]
 
 241.Check TP2PS.                                                       [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
-242.Send CP2TRDIS.                                                     [       ]
+242.Send CP2TREN.                                                      [       ]
 
 243.Check TP2TREN.                                                     [       ]
-	  - Expected: DISA
+	  - Expected: ENAB
 	  - Observed: ______________________________
 
 244.Send CMPRXP2ON.                                                    [       ]
@@ -800,16 +800,16 @@
 	  - Expected: OFF
 	  - Observed: ______________________________
 
-248.Send CP1OFF.                                                       [       ]
+248.Send CP1ON.                                                        [       ]
 
 249.Check TP1PS.                                                       [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
-250.Send CP1TRDIS.                                                     [       ]
+250.Send CP1TREN.                                                      [       ]
 
 251.Check TP1TREN.                                                     [       ]
-	  - Expected: DISA
+	  - Expected: ENAB
 	  - Observed: ______________________________
 
 252.Send CMPRXP1ON.                                                    [       ]
@@ -818,10 +818,10 @@
 	  - Expected: Enable
 	  - Observed: ______________________________
 
-254.Send CP1SDREQSTART.                                                [       ]
+254.Send CP1SDREQSTOP.                                                 [       ]
 
 255.Check TP1DATA.                                                     [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
 --------------------------------------------------------------------------------
@@ -834,28 +834,28 @@
 	  - Expected: OFF
 	  - Observed: ______________________________
 
-258.Send CP4TREN.                                                      [       ]
+258.Send CP4TRDIS.                                                     [       ]
 
 259.Check TP4TREN.                                                     [       ]
-	  - Expected: ENAB
+	  - Expected: DISA
 	  - Observed: ______________________________
 
-260.Send CMPRXP4ON.                                                    [       ]
+260.Send CMPRXP4OFF.                                                   [       ]
 
 261.Check TMPRXP4ST.                                                   [       ]
-	  - Expected: Enable
+	  - Expected: Disable
 	  - Observed: ______________________________
 
-262.Send CP4ENTOFFST.                                                  [       ]
+262.Send CP4ENTRDYST.                                                  [       ]
 
 263.Check TP4STATUS.                                                   [       ]
-	  - Expected: OFF
+	  - Expected: RDY
 	  - Observed: ______________________________
 
-264.Send CP3OFF.                                                       [       ]
+264.Send CP3ON.                                                        [       ]
 
 265.Check TP3PS.                                                       [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
 266.Send CP3TREN.                                                      [       ]
@@ -864,10 +864,10 @@
 	  - Expected: ENAB
 	  - Observed: ______________________________
 
-268.Send CMPRXP3OFF.                                                   [       ]
+268.Send CMPRXP3ON.                                                    [       ]
 
 269.Check TMPRXP3ST.                                                   [       ]
-	  - Expected: Disable
+	  - Expected: Enable
 	  - Observed: ______________________________
 
 270.Send CP3FPAOFF.                                                    [       ]
@@ -882,28 +882,28 @@
 	  - Expected: RDY
 	  - Observed: ______________________________
 
-274.Send CP2ON.                                                        [       ]
+274.Send CP2OFF.                                                       [       ]
 
 275.Check TP2PS.                                                       [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
-276.Send CP2TREN.                                                      [       ]
+276.Send CP2TRDIS.                                                     [       ]
 
 277.Check TP2TREN.                                                     [       ]
-	  - Expected: ENAB
+	  - Expected: DISA
 	  - Observed: ______________________________
 
-278.Send CMPRXP2ON.                                                    [       ]
+278.Send CMPRXP2OFF.                                                   [       ]
 
 279.Check TMPRXP2ST.                                                   [       ]
-	  - Expected: Enable
+	  - Expected: Disable
 	  - Observed: ______________________________
 
-280.Send CP2ACQSTART.                                                  [       ]
+280.Send CP2ACQSTOP.                                                   [       ]
 
 281.Check TP2LGWINSUM.                                                 [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
 282.Send CP1ON.                                                        [       ]
@@ -931,108 +931,320 @@
 	  - Observed: ______________________________
 
 --------------------------------------------------------------------------------
- * Check default status
+ * Check Test Case 9
 --------------------------------------------------------------------------------
 
 290.Send CP4POFF.                                                      [       ]
 
-291.Send CP4TRDIS.                                                     [       ]
-
-292.Send CMPRXP4OFF.                                                   [       ]
-
-293.Send CP4ENTOFFST.                                                  [       ]
-
-294.Send CP3OFF.                                                       [       ]
-
-295.Send CP3TRDIS.                                                     [       ]
-
-296.Send CMPRXP3OFF.                                                   [       ]
-
-297.Send CP3FPAOFF.                                                    [       ]
-
-298.Send CP3IMGSTOP.                                                   [       ]
-
-299.Send CP2OFF.                                                       [       ]
-
-300.Send CP2TRDIS.                                                     [       ]
-
-301.Send CMPRXP2OFF.                                                   [       ]
-
-302.Send CP2ACQSTOP.                                                   [       ]
-
-303.Send CP1OFF.                                                       [       ]
-
-304.Send CP1TRDIS.                                                     [       ]
-
-305.Send CMPRXP1OFF.                                                   [       ]
-
-306.Send CP1SDREQSTOP.                                                 [       ]
-
-307.Check TP1DATA.                                                     [       ]
+291.Check TP4PS.                                                       [       ]
 	  - Expected: OFF
 	  - Observed: ______________________________
 
-308.Check TMPRXP1ST.                                                   [       ]
-	  - Expected: Disable
-	  - Observed: ______________________________
+292.Send CP4TRDIS.                                                     [       ]
 
-309.Check TP1TREN.                                                     [       ]
+293.Check TP4TREN.                                                     [       ]
 	  - Expected: DISA
 	  - Observed: ______________________________
 
-310.Check TP1PS.                                                       [       ]
-	  - Expected: OFF
-	  - Observed: ______________________________
+294.Send CMPRXP4OFF.                                                   [       ]
 
-311.Check TP2LGWINSUM.                                                 [       ]
-	  - Expected: OFF
-	  - Observed: ______________________________
-
-312.Check TMPRXP2ST.                                                   [       ]
+295.Check TMPRXP4ST.                                                   [       ]
 	  - Expected: Disable
 	  - Observed: ______________________________
 
-313.Check TP2TREN.                                                     [       ]
-	  - Expected: DISA
-	  - Observed: ______________________________
+296.Send CP4ENTOFFST.                                                  [       ]
 
-314.Check TP2PS.                                                       [       ]
+297.Check TP4STATUS.                                                   [       ]
 	  - Expected: OFF
 	  - Observed: ______________________________
 
-315.Check TP3VALO.                                                     [       ]
+298.Send CP3OFF.                                                       [       ]
+
+299.Check TP3PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+300.Send CP3TRDIS.                                                     [       ]
+
+301.Check TP3TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+302.Send CMPRXP3OFF.                                                   [       ]
+
+303.Check TMPRXP3ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+304.Send CP3FPAOFF.                                                    [       ]
+
+305.Check TP3VALG.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+306.Send CP3IMGSTOP.                                                   [       ]
+
+307.Check TP3VALO.                                                     [       ]
 	  - Expected: RDY
 	  - Observed: ______________________________
 
-316.Check TP3VALG.                                                     [       ]
+308.Send CP2ON.                                                        [       ]
+
+309.Check TP2PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+310.Send CP2TREN.                                                      [       ]
+
+311.Check TP2TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+312.Send CMPRXP2ON.                                                    [       ]
+
+313.Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+314.Send CP2ACQSTART.                                                  [       ]
+
+315.Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+316.Send CP1ON.                                                        [       ]
+
+317.Check TP1PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+318.Send CP1TREN.                                                      [       ]
+
+319.Check TP1TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+320.Send CMPRXP1ON.                                                    [       ]
+
+321.Check TMPRXP1ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+322.Send CP1SDREQSTART.                                                [       ]
+
+323.Check TP1DATA.                                                     [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check Test Case 10
+--------------------------------------------------------------------------------
+
+324.Send CP4PON.                                                       [       ]
+
+325.Check TP4PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+326.Send CP4TREN.                                                      [       ]
+
+327.Check TP4TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+328.Send CMPRXP4ON.                                                    [       ]
+
+329.Check TMPRXP4ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+330.Send CP4ENTIMGST.                                                  [       ]
+
+331.Check TP4STATUS.                                                   [       ]
+	  - Expected: IMG
+	  - Observed: ______________________________
+
+332.Send CP3ON.                                                        [       ]
+
+333.Check TP3PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+334.Send CP3TREN.                                                      [       ]
+
+335.Check TP3TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+336.Send CMPRXP3ON.                                                    [       ]
+
+337.Check TMPRXP3ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+338.Send CP3FPAON.                                                     [       ]
+
+339.Check TP3VALG.                                                     [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+340.Send CP3IMGSTART.                                                  [       ]
+
+341.Check TP3VALO.                                                     [       ]
+	  - Expected: IMG
+	  - Observed: ______________________________
+
+342.Send CP2ON.                                                        [       ]
+
+343.Check TP2PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+344.Send CP2TREN.                                                      [       ]
+
+345.Check TP2TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+346.Send CMPRXP2ON.                                                    [       ]
+
+347.Check TMPRXP2ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+348.Send CP2ACQSTART.                                                  [       ]
+
+349.Check TP2LGWINSUM.                                                 [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+350.Send CP1ON.                                                        [       ]
+
+351.Check TP1PS.                                                       [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+352.Send CP1TREN.                                                      [       ]
+
+353.Check TP1TREN.                                                     [       ]
+	  - Expected: ENAB
+	  - Observed: ______________________________
+
+354.Send CMPRXP1ON.                                                    [       ]
+
+355.Check TMPRXP1ST.                                                   [       ]
+	  - Expected: Enable
+	  - Observed: ______________________________
+
+356.Send CP1SDREQSTART.                                                [       ]
+
+357.Check TP1DATA.                                                     [       ]
+	  - Expected: ON
+	  - Observed: ______________________________
+
+--------------------------------------------------------------------------------
+ * Check default status
+--------------------------------------------------------------------------------
+
+358.Send CP4POFF.                                                      [       ]
+
+359.Send CP4TRDIS.                                                     [       ]
+
+360.Send CMPRXP4OFF.                                                   [       ]
+
+361.Send CP4ENTOFFST.                                                  [       ]
+
+362.Send CP3OFF.                                                       [       ]
+
+363.Send CP3TRDIS.                                                     [       ]
+
+364.Send CMPRXP3OFF.                                                   [       ]
+
+365.Send CP3FPAOFF.                                                    [       ]
+
+366.Send CP3IMGSTOP.                                                   [       ]
+
+367.Send CP2OFF.                                                       [       ]
+
+368.Send CP2TRDIS.                                                     [       ]
+
+369.Send CMPRXP2OFF.                                                   [       ]
+
+370.Send CP2ACQSTOP.                                                   [       ]
+
+371.Send CP1OFF.                                                       [       ]
+
+372.Send CP1TRDIS.                                                     [       ]
+
+373.Send CMPRXP1OFF.                                                   [       ]
+
+374.Send CP1SDREQSTOP.                                                 [       ]
+
+375.Check TP1DATA.                                                     [       ]
 	  - Expected: OFF
 	  - Observed: ______________________________
 
-317.Check TMPRXP3ST.                                                   [       ]
+376.Check TMPRXP1ST.                                                   [       ]
 	  - Expected: Disable
 	  - Observed: ______________________________
 
-318.Check TP3TREN.                                                     [       ]
+377.Check TP1TREN.                                                     [       ]
 	  - Expected: DISA
 	  - Observed: ______________________________
 
-319.Check TP3PS.                                                       [       ]
+378.Check TP1PS.                                                       [       ]
 	  - Expected: OFF
 	  - Observed: ______________________________
 
-320.Check TP4STATUS.                                                   [       ]
+379.Check TP2LGWINSUM.                                                 [       ]
 	  - Expected: OFF
 	  - Observed: ______________________________
 
-321.Check TMPRXP4ST.                                                   [       ]
+380.Check TMPRXP2ST.                                                   [       ]
 	  - Expected: Disable
 	  - Observed: ______________________________
 
-322.Check TP4TREN.                                                     [       ]
+381.Check TP2TREN.                                                     [       ]
 	  - Expected: DISA
 	  - Observed: ______________________________
 
-323.Check TP4PS.                                                       [       ]
+382.Check TP2PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+383.Check TP3VALO.                                                     [       ]
+	  - Expected: RDY
+	  - Observed: ______________________________
+
+384.Check TP3VALG.                                                     [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+385.Check TMPRXP3ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+386.Check TP3TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+387.Check TP3PS.                                                       [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+388.Check TP4STATUS.                                                   [       ]
+	  - Expected: OFF
+	  - Observed: ______________________________
+
+389.Check TMPRXP4ST.                                                   [       ]
+	  - Expected: Disable
+	  - Observed: ______________________________
+
+390.Check TP4TREN.                                                     [       ]
+	  - Expected: DISA
+	  - Observed: ______________________________
+
+391.Check TP4PS.                                                       [       ]
 	  - Expected: OFF
 	  - Observed: ______________________________
 

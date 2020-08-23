@@ -44,10 +44,10 @@
 	  - Expected: OFF
 	  - Observed: ______________________________
 
-8.  Send CMXPON.                                                       [       ]
+8.  Send CMXPOFF.                                                      [       ]
 
 9.  Check TMXTXPS.                                                     [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
 10. Send CP4POFF.                                                      [       ]
@@ -146,16 +146,16 @@
 	  - Expected: ON
 	  - Observed: ______________________________
 
-38. Send CMXPOFF.                                                      [       ]
+38. Send CMXPON.                                                       [       ]
 
 39. Check TMXTXPS.                                                     [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
-40. Send CP4POFF.                                                      [       ]
+40. Send CP4PON.                                                       [       ]
 
 41. Check TP4PS.                                                       [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
 42. Send CP1OFF.                                                       [       ]
@@ -180,22 +180,22 @@
 	  - Expected: OFF
 	  - Observed: ______________________________
 
-48. Send CMXPON.                                                       [       ]
+48. Send CMXPOFF.                                                      [       ]
 
 49. Check TMXTXPS.                                                     [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
-50. Send CP4PON.                                                       [       ]
+50. Send CP4POFF.                                                      [       ]
 
 51. Check TP4PS.                                                       [       ]
-	  - Expected: ON
+	  - Expected: OFF
 	  - Observed: ______________________________
 
-52. Send CP1OFF.                                                       [       ]
+52. Send CP1ON.                                                        [       ]
 
 53. Check TP1PS.                                                       [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
 54. Send CP2ON.                                                        [       ]
@@ -214,10 +214,10 @@
 	  - Expected: OFF
 	  - Observed: ______________________________
 
-58. Send CMXPOFF.                                                      [       ]
+58. Send CMXPON.                                                       [       ]
 
 59. Check TMXTXPS.                                                     [       ]
-	  - Expected: OFF
+	  - Expected: ON
 	  - Observed: ______________________________
 
 60. Send CP4PON.                                                       [       ]
