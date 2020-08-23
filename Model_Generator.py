@@ -155,12 +155,12 @@ def generate_model(s, case, tlm):
 
                     if idx >= 0:
                         if j == 0:
-                            follower.append('- ' + str(dic[mnemonic.index(con[j][0])][1] + idx))
+                            prefix = '- ' + str(dic[mnemonic.index(con[j][0])][1] + idx)
                         else:
-                            follower.append(' + ' + str(dic[mnemonic.index(con[j][0])][1] + idx))
+                            cnst.append([prefix, ' + ' + str(dic[mnemonic.index(con[j][0])][1] + idx)])
 
-            if len(follower) > 0:
-                cnst.append(follower)
+#            if len(follower) > 0:
+#                cnst.append(follower)
 
         constraints.append(cnst)
 

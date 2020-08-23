@@ -3,6 +3,7 @@ import random
 import copy
 import argparse
 import numpy as np
+from operator import itemgetter
 
 
 op_reward = np.ones(6)
@@ -26,18 +27,45 @@ def combination(t, data):
     return ret
 
 
+def insert_constraint(cnst, val):
+    ret = False
+
+    if val not in cnst:
+        cnst.append(val)
+        ret = True
+
+    return ret
+
+
 def build_possible_tuple(t, data, constraint):
     tuples = combination(t, data)
 
     possible_tuple = []
 
-    for i in range(len(constraint)):
-        for j in range(i + 1, len(constraint)):
-            if constraint[i][0] == constraint[j][0]:
-                if constraint[i][1][1] == constraint[j][1][0]:
-                    constraint.append([constraint[i][0], [constraint[i][1][0], constraint[j][1][1]]])
-                elif constraint[i][1][0] == constraint[j][1][1]:
-                    constraint.append([constraint[i][0], [constraint[j][1][0], constraint[i][1][1]]])
+    is_change = True
+
+    while is_change:
+        is_change = False
+
+        for i in range(len(constraint)):
+            for j in range(i + 1, len(constraint)):
+                if constraint[i][0] == constraint[j][0]:
+                    if constraint[i][1][0] == constraint[j][1][0]:
+                        c1 = constraint[i][1][1]
+                        c2 = constraint[j][1][1]
+                    elif constraint[i][1][1] == constraint[j][1][0]:
+                        c1 = constraint[i][1][0]
+                        c2 = constraint[j][1][1]
+                    elif constraint[i][1][0] == constraint[j][1][1]:
+                        c1 = constraint[i][1][1]
+                        c2 = constraint[j][1][0]
+
+                if c1 > c2:
+                    c1, c2 = c2, c1
+
+                is_change = insert_constraint(constraint, [constraint[i][0], [c1, c2]])
+
+        constraint = sorted(constraint, key=itemgetter(1))
 
     for tup in tuples:
         is_del = False
@@ -68,8 +96,7 @@ def build_possible_tuple(t, data, constraint):
                                         is_del = True
                                         break
 
-        if not is_del:
-            possible_tuple.append(tup)
+        possible_tuple.append([tup, not is_del])
 
     return possible_tuple
 
@@ -93,17 +120,22 @@ def initial_array(t, data, n):
 
 
 def count_missing_tuple(a):
-    count = len(possible_tuple)
+    count = 0
 
     for t in possible_tuple:
-        tup = set(t)
+        tup = set(t[0])
+        is_exist = t[1]
+
+        is_count = is_exist
 
         for r in a:
             row = set(r)
 
             if tup == row.intersection(tup):
-                count -= 1
-                break
+                is_count = not is_exist
+
+        if is_count:
+            count += 1
 
     return count
 
@@ -132,9 +164,13 @@ def get_missing_tuple(a):
         row = set(r)
 
         for t in possible_tuple:
-            tup = set(t)
+            tup = set(t[0])
+            is_required = t[1]
 
-            if tup != row.intersection(tup):
+            if tup != row.intersection(tup) and is_required:
+                ret.append(r)
+                break
+            elif tup == row.intersection(tup) and not is_required:
                 ret.append(r)
                 break
 
