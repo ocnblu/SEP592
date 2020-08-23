@@ -1,4 +1,4 @@
-# KAIST 2020 Summer Semester SEP592 Project <br> CIT-based Automatic Test Code and Procedure Generation for Spacecraft
+# KAIST 2020 Summer Semester SEP592 Project: <br> CIT-based Automatic Test Code and Procedure Generation for Spacecraft
 
 > The objective of this project is automatically to generate test codes and/or procedures for the spacecraft by the CIT (Combinatorial Interaction Test) tool.
 
@@ -9,7 +9,7 @@
 
 > All the programs is implemented using Python, and it requires Python modules: argparse, math, random, copy, numpy and datetime.
 
-> And dataset was atificially generated to test our progeam.
+> And dataset was artificially generated to test our progeam.
 
 
 
