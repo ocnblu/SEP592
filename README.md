@@ -1,9 +1,12 @@
-# SEP592: CIT-based Automatic Test Code and Procedure Generation for Spacecraft
+# KAIST 2020 Summer Semester SEP592 Project
+# CIT-based Automatic Test Code and Procedure Generation for Spacecraft
 
 > The objective of this project is automatically to generate test codes and/or procedures for the spacecraft by the CIT (Combinatorial Interaction Test) tool.
 
-> The main idea came from the paper:
-> Y. Jia, M. Cohen, M. Harman, and J. Petke. Learning combinatorial interaction test generation strategies using hyperheuristic search. In International Conference on Software Engineering (ICSE’15), 2015.
+> The main idea came from the paper:<br>
+> Y. Jia, M. Cohen, M. Harman, and J. Petke.<br>
+> **Learning combinatorial interaction test generation strategies using hyperheuristic search** <br>
+> In International Conference on Software Engineering (ICSE’15), 2015.
 
 > All the programs is implemented using Python, and it requires Python modules: argparse, math, random, copy, numpy and datetime.
 
